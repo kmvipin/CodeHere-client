@@ -1,0 +1,7 @@
+@import url('https://fonts.googleapis.com/css2?family=PT+Sans&display=swap');
+
+.error-list{
+    font-family: 'PT Sans', sans-serif;
+    color: red;
+    margin-bottom: 20px;
+}

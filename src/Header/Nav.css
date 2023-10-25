@@ -1,0 +1,39 @@
+.bg-body-tertiary{
+    z-index: 1;
+    margin-bottom: 5px;
+    border: 0.5px solid rgba(0, 0, 0, 0.175);
+    box-shadow: 0.5px 0.5px 1px gray;
+}
+
+.bg-body-tertiary .container{
+    margin-left: 20px;
+    margin-right: 10px;
+}
+
+@media (min-width: 1400px),(min-width: 1200px),(min-width: 992px), (min-width: 768px),
+(min-width: 576px) {
+    .bg-body-tertiary .container, .container-lg, .container-md, .container-sm, .container-xl {
+      max-width: none !important;
+    }
+}
+
+/* Add this CSS to your component's stylesheet (e.g., Nav.css) or as inline styles */
+
+.profile-icon {
+    width: 35px; /* Adjust the size as needed */
+    height: 35px; /* Keep the width and height the same to create a perfect circle */
+    background-color: #09640987; /* Background color for the circular container */
+    color: #fff; /* Text color for the icon */
+    border-radius: 50%; /* Makes it a perfect circle */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer; /* Add a pointer cursor for better UX */
+  
+    /* You can add more styles here, like shadows or animations */
+  }
+  
+  .profile-icon:hover {
+    /* Add hover styles if you want to make it more interactive */
+    background-color: green; /* Change the background color on hover */
+  }

@@ -1,0 +1,49 @@
+.page-not-found{
+    margin-top: 15vh;
+}
+
+/* Header styles */
+  .pnf-header {
+    padding: 20px;
+    text-align: center;
+    color: #fff;
+  }
+  
+  .pnf-header h1 {
+    font-size: 2.5rem;
+  }
+  
+  /* Main content styles */
+  .pnf-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #fff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .pnf-container p {
+
+    font-size: 1.2rem;
+    line-height: 1.5;
+  }
+  
+  /* Button styles */
+  .pnf-btn {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #3498db;
+    color: #fff;
+    text-decoration: none;
+    border: none;
+    border-radius: 4px;
+    transition: background-color 0.3s;
+  }
+  
+  .pnf-btn:hover {
+    background-color: #2186c4;
+  }
+  

@@ -1,0 +1,100 @@
+/* Question.css */
+/* Style for the main container */
+.question-container {
+    max-width: 1000px;
+    margin: 30px auto;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+  }
+
+  .example-container {
+    max-width: 1000px;
+    margin: 30px auto;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 1px;
+    box-shadow:0px 0px 5px rgba(0, 0, 0, 0.2);
+    border:0.009px dotted;
+    margin-bottom:"0px"
+}
+  
+  /* Style for input fields and textareas */
+  .form-control {
+    border-radius: 5px;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    transition: border-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+  }
+  
+  /* Style for input labels */
+  .input-group-text {
+    background-color: #f0f0f0;
+    border: none;
+    border-radius: 5px 0 0 5px;
+  }
+  
+  /* Style for the Runcases textarea */
+  .textarea-group {
+    margin-top: 15px;
+  }
+  
+  /* Style for the "Main Class Impl" textarea */
+  .main-class-impl {
+    height: 200px; /* Adjust the height as needed */
+  }
+
+  .form-control:focus {
+    border-color: black; /* Change the border color when focused */
+    box-shadow: none;
+    background-color: #fff; /* Change the background color when focused */
+  }
+
+  h1 {
+    font-size: 24px;
+    color: #333;
+    margin: 20px 20px;
+    text-align: center;
+  }
+
+  .textarea-group textarea {
+    resize: vertical; /* Allow vertical resizing for textareas */
+  }
+
+  .add-question-heading {
+    font-size: 36px; /* Increase the font size */
+    color: black; /* Change the text color to blue */
+    margin-bottom: 30px; /* Increase the margin at the bottom */
+    text-align: center;
+    text-transform: uppercase; /* Convert text to uppercase */
+    font-weight: bold; /* Make the text bold */
+    letter-spacing: 2px; /* Add letter spacing */
+    padding: 10px; /* Add padding */
+    border-radius: 5px; /* Add border radius */
+  }
+
+  .submit-button-container {
+    display: flex;
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+    margin-top: 20px; /* Adjust the margin as needed */
+  }
+  
+  .submit-button {
+    background-color: #007bff; /* Button background color */
+    text-align: center;
+    color: #fff; /* Button text color */
+    border: none; /* Remove the button border */
+    border-radius: 5px; /* Add border radius */
+    padding: 10px 20px; /* Add padding to the button */
+    font-size: 16px; /* Button text font size */
+    cursor: pointer; /* Add pointer cursor on hover */
+    transition: background-color 0.3s ease-in-out; /* Smooth background color transition on hover */
+  }
+  
+  /* Change button color on hover */
+  .submit-button:hover {
+    background-color: #0056b3; /* Button background color on hover */
+  }

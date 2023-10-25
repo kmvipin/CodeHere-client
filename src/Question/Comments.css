@@ -1,0 +1,45 @@
+@import url('https://fonts.googleapis.com/css2?family=PT+Serif&display=swap');
+
+.form-container{
+    max-width: 1000px;
+    margin: 0 0 10px 0;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border: 1px solid rgba(0, 0, 0, 0.175);;
+}
+.comments-container{
+    display:flex;
+    flex-direction:column;
+    padding: 15px 20px 80px 20px;
+}
+
+blockquote{
+    font-family: 'PT Serif', serif;
+}
+
+.submit-button {
+    --tw-bg-opacity : 1;
+    background-color: rgb(45 181 93/var(--tw-bg-opacity)); /* Button background color */
+    text-align: center;
+    color: #fff; /* Button text color */
+    border: none; /* Remove the button border */
+    border-radius: 5px; /* Add border radius */
+    padding: 7px 7px; /* Add padding to the button */
+    font-size: 12px; /* Button text font size */
+    cursor: pointer; /* Add pointer cursor on hover */
+    transition: background-color 0.3s ease-in-out; /* Smooth background color transition on hover */
+}
+
+.submit-button:hover{
+    background-color: rgb(45 181 93/var(--tw-bg-opacity));;
+}
+
+.del-btn{
+    font-size: 15px;
+  border: 1px solid black;
+  padding: 0 2px;
+  border-radius: 4px;
+  cursor: pointer;
+  background-color: #dc3545;
+  color: white;
+}

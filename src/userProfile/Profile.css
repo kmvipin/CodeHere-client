@@ -1,0 +1,126 @@
+.custom-profile-card {
+    padding: 20px;
+    border: 1px solid #e6e6e6;
+    border-radius: 10px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+    background-color: #fff;
+    text-align: center;
+    overflow: auto;
+  }
+  
+  /* Style the profile image */
+  .profile-image {
+    display: block;
+    margin: 0 auto;
+    border: 6px solid #fff;
+    border-radius: 50%;
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+  }
+
+  .custom-profile-card .card-title {
+    font-size: 28px;
+    margin: 20px 0;
+    color: #66039c;
+  }
+  
+  /* Information Section Styles */
+  .info {
+    margin: 10px 0;
+    font-size: 18px;
+    color: #333;
+  }
+  
+  /* Style links in the card */
+  .custom-profile-card a {
+    color: #007bff;
+    text-decoration: none;
+  }
+  
+  /* Style links on hover */
+  .custom-profile-card a:hover {
+    text-decoration: underline;
+  }
+  
+  /* Responsive Layout */
+  @media (max-width: 768px) {
+    .custom-profile-card {
+      margin-bottom: 20px;
+    }
+  }
+
+  .custom-profile-card input{
+    border:none;
+    border-bottom: 1px solid black;
+  }
+  .custom-profile-card input[type="number"]{
+    width: 20%;
+    text-align: center;
+  }
+  .custom-profile-card input:focus{
+    outline: none;
+  }
+
+  .custom-list .list-item input{
+    margin-left: 10%;
+    border: none;
+    width: 100%;
+    background-color: #f8f8f8;
+  }
+
+  .custom-list .list-item input:focus{
+    outline: none;
+    border-bottom: 1px solid black;
+  }
+
+  /* List Item Styles */
+  .custom-list {
+    margin-top: 20px;
+  }
+
+  /* List Item Styles (continued) */
+.list-item {
+    background-color: #f8f8f8;
+    display: flex;
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    color: #333;
+  }
+  
+  /* Links Styles */
+  .list-item a {
+    color: #007bff;
+    text-decoration: none;
+    width: 15%;
+  }
+  
+  /* Links Styles on Hover */
+  .list-item a:hover {
+    text-decoration: underline;
+  }
+  
+  /* Center the Sections */
+  .text-center {
+    text-align: center;
+  }
+  /* Add Spacing */
+  .mt-4 {
+    margin-top: 20px;
+  }
+
+  .edit-button {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    cursor: pointer;
+    color: #007bff;
+    z-index: 1;
+  }
+  
+  /* Edit button icon styles */
+  .edit-button i {
+    margin-right: 5px;
+  }

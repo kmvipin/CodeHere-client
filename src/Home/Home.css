@@ -1,0 +1,102 @@
+/* App.css */
+
+/* Global Styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+  
+  
+  /* Hero Section Styles */
+  .hero {
+    border-top: 2px solid #333;
+    background-image: url('../assets/images/hero.png');
+    background-size: cover;
+    background-position:center;
+    background-attachment: fixed;
+    width: 100%;
+    color: #fff;
+    text-align: center;
+    margin-left: 5px;
+    margin-right: 5px;
+    height: 75vh;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column-reverse;
+  }
+  
+  .hero h1 {
+    font-size: 45px;
+  }
+  
+  .hero p {
+    font-size: 25px;
+    margin: 20px 0;
+  }
+  
+  .cta-button {
+    display: inline-block;
+    cursor: pointer;
+    padding: 10px 20px;
+    background-color: #ff5722;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: background-color 0.3s;
+    align-self: center;
+    margin-bottom: 10px;
+  }
+  
+  .cta-button:hover {
+    background-color: #ff8855;
+  }
+  
+  /* Featured Categories Styles */
+  .category-container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin: 30px 0;
+  }
+
+  
+  /* Add more specific styles for each section and element as needed. */
+  
+  .section-title {
+    font-size: 28px; /* Adjust the font size as needed */
+    margin-top: 40px;
+    margin-bottom: 20px;
+    text-align: center;
+    color: #333; /* Text color for section titles */
+  }
+
+  /* Update CSS for the "About Us" section */
+  
+  .about-section {
+    margin-top: 80px;
+    margin-bottom: 80px;
+  }
+
+  .about-content {
+    text-align: center;
+  }
+  
+  .about-content h2 {
+    font-size: 28px;
+    margin-bottom: 20px;
+    color: #fff; /* Add your desired text color */
+  }
+  
+  .about-content p {
+    font-size: 18px;
+    color: #333; /* Add your desired text color */
+  }
+  
+  /* Additional styles for the "About Us" section */
+  /* .about-content { ... } */
+  
+  .contact-section{
+    margin-bottom: 20px;
+  }

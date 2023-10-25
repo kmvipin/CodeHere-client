@@ -1,0 +1,108 @@
+@import url('https://fonts.googleapis.com/css2?family=Gabarito&family=Rubik:wght@500&display=swap');
+/* Add these styles to your CSS */
+
+h1{
+  font-family: 'Gabarito', cursive;
+}
+.question-details {
+    background-color: #f8f9fa;
+    padding: 20px;
+    border: 1px solid #e0e0e0;
+    border-radius: 5px;
+    width: 100%;
+    max-height: 100vh; /* Set a maximum height for the container */
+    overflow-y: auto;
+    overflow-x: 'hidden';
+    padding-bottom: 80px;
+  }
+  
+  .question-title {
+    font-size: 24px;
+    margin-left: 0;
+    margin-bottom: 20px;
+  }
+  
+  .details {
+    margin-top: 10px;
+    overflow-x : 'hidden'
+  }
+  
+  .detail {
+    margin-bottom: 10px;
+  }
+  
+  .example-box h2,
+  .constraints h2 {
+    font-family: 'Rubik', sans-serif;
+    font-size: 20px;
+  }
+  
+  ul {
+    padding-left: 20px;
+  }
+  
+  .examples ul,
+  .constraints ul {
+    list-style: disc;
+  }
+  
+  .examples li::before,
+  .constraints li::before {
+    content: ''; /* Remove the bullet from nested lists */
+    margin-right: 5px;
+  }
+  
+  .examples img {
+    max-width: 100%;
+    height: auto;
+    margin-top: 10px;
+  }
+  
+  .examples p {
+    margin-top: 10px;
+  }
+  
+  /* Add more styles as needed */
+  /* Add these styles to your CSS */
+
+.example-box {
+    border: 1px solid #ddd;
+    padding: 20px;
+    margin: 20px 0;
+    border-radius: 5px;
+    background-color: #f2f2f2;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .examples-container {
+    margin-top: 20px;
+  }
+  
+  /* Update your CSS file with these styles */
+
+/* Update your CSS file with these styles */
+
+.difficulty-and-tags {
+    display: flex;
+    flex-direction: row; /* Set the direction to row for a horizontal layout */
+    justify-content: space-between; /* Space evenly between the elements */
+    overflow-x : 'hidden'
+  }
+  
+  .detail {
+    border: 1px solid #ddd;
+    padding: 10px;
+    border-radius: 5px;
+    background-color: #f8f9fa;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin: 5px;
+    width: 48%; /* Adjust the width as needed */
+    overflow-x : 'hidden'
+  }
+  
+  .detail strong {
+    font-weight: bold;
+    color: #333;
+    overflow-x : 'hidden'
+  }
+  
