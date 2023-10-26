@@ -89,7 +89,7 @@ const LoginSignup = (props) => {
         })
     }
     useEffect(()=>{
-        if(showForm == false){
+        if(showForm === false){
             setIsForgotPass(false);
             setLoginError(null);
             setSignupError(null);
