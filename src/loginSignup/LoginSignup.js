@@ -19,6 +19,9 @@ const LoginSignup = (props) => {
     const [signUpError, setSignupError] = useState();
     const [alertMessage, setAlertMessage] = useState();
     const [isForgotPass, setIsForgotPass] = useState(false);
+    const emailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
+    const userNamePattern = /^[a-zA-Z]{2}[a-zA-Z0-9]{2,8}$/;
+    const passwordPattern = /^(?=.*[a-zA-Z])(?=.*\d)[a-zA-Z\d]{5,}$/;
 
     const handleLogin=(data)=>{
         setLoginError(null);
@@ -38,11 +41,11 @@ const LoginSignup = (props) => {
             })
             .catch((error)=>{
                 console.error(error);
-                if(error.response.status === 401){
+                if(error.response && error.response.status === 401){
                     setLoginError("Username or Password Incorrect!!");
                 }
                 else if(error.code === 'ERR_NETWORK'){
-                    setAlertMessage(error.message);
+                    setAlertMessage("Please Check Your Internet Connection");
                 }else{
                     setAlertMessage("Something Went Wrong");
                 }
@@ -55,6 +58,22 @@ const LoginSignup = (props) => {
 
     const handleSignup=(data)=>{
         setSignupError(null);
+        if(!emailPattern.test(data.email)){
+            setSignupError("Write Valid Email");
+            return;
+        }
+        if(!userNamePattern.test(data.userName)){
+            setSignupError("Username first 3 letter must alphabets, only alphabets and number allowed");
+            return;
+        }
+        if(!passwordPattern.test(data.pwd)){
+            setSignupError("Password Must Contains Alphabets and Number, Min length is 5")
+            return;
+        }
+        if(data.pwd !== data.confirmPwd){
+            setSignupError("Both Password Must Be Same");
+            return;
+        }
         userSignup(data)
         .then((res)=>{
             if(res.success){
