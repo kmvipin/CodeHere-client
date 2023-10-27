@@ -10,6 +10,7 @@ import { useState } from 'react';
 import AlertMessage from '../components/AlertMessage';
 import { Container, Table } from 'react-bootstrap';
 import DynamicPagination from '../components/DynamicPagination';
+import ReactLoading from 'react-loading';
 
 const QuestionList = () => {
 
@@ -25,6 +26,7 @@ const QuestionList = () => {
     const difficulty = JSON.parse(decodeURIComponent(serializedData));
     const navigate = useNavigate();
     const [data,setData] = useState();
+    const [loading,setLoading] = useState(true);
     const underline = "2px solid gray";
 
     const handlePageChange = (newPage) =>{
@@ -47,6 +49,7 @@ const QuestionList = () => {
           getQuestionListByDifficulty(1,5,difficulty)
           .then(res=>{
               setData(res);
+              setLoading(false);
           })
           .catch(err=>{
               setAlertMessage(errMssg);
@@ -72,7 +75,7 @@ const QuestionList = () => {
                 <th>Difficulty</th>
               </tr>
             </thead>
-            <tbody>
+            {!loading && <tbody>
               {data &&
                 data.map((obj, index) => (
                   <tr key={index}>
@@ -117,8 +120,11 @@ const QuestionList = () => {
                     </td>
                   </tr>
                 ))}
-            </tbody>
+            </tbody>}
           </Table>
+          {loading && <div style={{display:'flex', justifyContent:'center', alignItems :'center'}}>
+                  <ReactLoading type={'bubbles'} color={'grey'} height={40} width={80}/>
+              </div>}
         </Container>
           <DynamicPagination
               total={totalPageNum}

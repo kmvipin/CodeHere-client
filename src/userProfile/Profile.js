@@ -109,7 +109,6 @@ function ProfilePage() {
                 <div style={{display:'flex', justifyContent:'space-around'}}>
                 <input
                     type="text"
-                    defaultValue={'First Name'}
                     value={editedData.person.first_name}
                     onChange={(e) => setEditedData({ ...editedData,
                                                           person: {
