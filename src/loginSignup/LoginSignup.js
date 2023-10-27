@@ -21,7 +21,7 @@ const LoginSignup = (props) => {
     const [isForgotPass, setIsForgotPass] = useState(false);
     const emailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
     const userNamePattern = /^[a-zA-Z]{2}[a-zA-Z0-9]{2,8}$/;
-    const passwordPattern = /^(?=.*[a-zA-Z])(?=.*\d)[a-zA-Z\d]{5,}$/;
+    const passwordPattern = /^(?=.*[a-zA-Z])(?=.*\d)[a-zA-Z\d!@#$%^&*()_+[\]{}|;:'",.<>/?\\]{5,}$/;
 
     const handleLogin=(data)=>{
         setLoginError(null);
@@ -77,7 +77,7 @@ const LoginSignup = (props) => {
         userSignup(data)
         .then((res)=>{
             if(res.success){
-                toast.success("Signup Successfully");
+                 toast.success("Signup Successfully");
                 setShowForm(false);
             }
             else{
