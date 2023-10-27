@@ -1,7 +1,7 @@
 import axios from "axios";
 import { getToken } from "../auth";
 
-export const BASE_URL = "http://codehereserver.com";
+export const BASE_URL = process.env.REACT_APP_BASE_URL;
 
 export const myAxios = axios.create({
   baseURL: BASE_URL,
