@@ -35,6 +35,7 @@ function Question() {
   const [alertMessage, setAlertMessage] = useState();
   const [isUserLogin, setIsuserLogin] = useState(isLogin());
   const [selectedLanguage, setSelectedLanguage] = useState("JAVA");
+  const [isVerticalSplit, setIsVerticalSplit] = useState(window.innerWidth <= 800);
   const handleUpdateCode = (newCode) =>{
       setCode(newCode);
   }
@@ -172,20 +173,41 @@ const onRunHandle = () => {
     fetchData();
   },[isUserLogin]);
 
+  useEffect(() => {
+    const handleResize = () => {
+      setIsVerticalSplit(window.innerWidth <= 800);
+    };
+
+    window.addEventListener('resize', handleResize);
+
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
+  }, []);
+
   return (
     <>
     <AlertMessage message={alertMessage} content='Try Re-Login And Refresh' setMessage={setAlertMessage}/>
     <Nav loginSignupSync={handleNavSync}/>
     <div className="split-pane">
-      <SplitPane split="vertical" sizes={verticalSizes} onChange={setVerticalSizes}>
-        <Pane minSize={50} maxSize="50%" style={{borderRight:'4px solid #e0e0e0', overflow :' hidden', backgroundColor:'white'}}>
-            <div style={{overflow : 'hidden'}}>
+      <SplitPane split={!isVerticalSplit ? 'vertical' : 'horizontal'} sizes={verticalSizes} onChange={setVerticalSizes}>
+        <Pane minSize={50} maxSize="50%" style={
+                                                {
+                                                  overflow: 'hidden',
+                                                  backgroundColor: 'white',
+                                                  ...(isVerticalSplit
+                                                    ? { borderBottom: '4px solid #e0e0e0' }
+                                                    : { borderRight: '4px solid #e0e0e0' }
+                                                  )
+                                                }
+                                              }>
+            <div style={{overflow:'hidden'}}>
               <Tabs
                 defaultActiveKey="description"
                 id="uncontrolled-tab-example"
                 style={{"--bs-nav-link-color" : "#0000009c","--bs-nav-link-hover-color" : 'black'}}
               >
-                <Tab eventKey="description" title="Description" style={{height:'100vh'}}>
+                <Tab eventKey="description" title="Description">
                   {!questionLoading ? (<div style={{ ...layoutCSS }}>
                       <QuestionInfo questionInfo = {data.questionInfo}/>
                   </div>) : (
