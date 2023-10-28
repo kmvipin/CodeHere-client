@@ -193,7 +193,7 @@ const onRunHandle = () => {
       <SplitPane split={!isVerticalSplit ? 'vertical' : 'horizontal'} sizes={verticalSizes} onChange={setVerticalSizes}>
         <Pane minSize={50} maxSize="50%" style={
                                                 {
-                                                  overflow: 'hidden',
+                                                  overflow: 'auto',
                                                   backgroundColor: 'white',
                                                   ...(isVerticalSplit
                                                     ? { borderBottom: '4px solid #e0e0e0' }
@@ -201,7 +201,7 @@ const onRunHandle = () => {
                                                   )
                                                 }
                                               }>
-            <div style={{overflow:'hidden'}}>
+            <div style={{overflow:'auto'}}>
               <Tabs
                 defaultActiveKey="description"
                 id="uncontrolled-tab-example"
@@ -211,14 +211,14 @@ const onRunHandle = () => {
                   {!questionLoading ? (<div style={{ ...layoutCSS }}>
                       <QuestionInfo questionInfo = {data.questionInfo}/>
                   </div>) : (
-                    <div style={{display:'flex', justifyContent:'center', alignItems :'center', height:'100%'}}>
+                    <div style={{display:'flex', justifyContent:'center', alignItems :'center',height:'85vh'}}>
                         <ReactLoading type={'bubbles'} color={'grey'} height={80} width={80} />
                     </div>
                   )
                   }
                 </Tab>
                 <Tab eventKey="comments" title="Comments">
-                  <div style={{border:'2px solid #e0e0e0', height:'98vh', overflow:'auto'}}>
+                  <div style={{border:'2px solid #e0e0e0', height:'98vh',overflow:'auto'}}>
                     <Comments questionName={questionName} isLogin={isUserLogin}/>
                   </div>
                 </Tab>
