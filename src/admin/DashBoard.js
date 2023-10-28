@@ -13,7 +13,7 @@ function App() {
       <Container className='dashboard-container-card'>
         <Row>
           <Col md={4}>
-            <Card className="custom-card add-question" onClick={()=>{navigate('/admin/add-question')}}>
+            <Card className="custom-card add-question" onClick={()=>{navigate('/admin2023/add-question')}}>
               <Card.Body>
                 <Card.Title>Add Question</Card.Title>
                 <Card.Text>
@@ -24,7 +24,7 @@ function App() {
           </Col>
 
           <Col md={4}>
-            <Card className="custom-card add-test-cases" onClick={()=>{navigate('/admin/addtestcases')}}>
+            <Card className="custom-card add-test-cases" onClick={()=>{navigate('/admin2023/addtestcases')}}>
               <Card.Body>
                 <Card.Title>Add Test Cases</Card.Title>
                 <Card.Text>

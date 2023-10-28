@@ -228,7 +228,7 @@ const onRunHandle = () => {
             </Tabs>
           </div>
         </Pane>
-        <div className="right-panel">
+        <Pane className="right-panel">
           <SplitPane split="horizontal" sizes={horizontalSizes} onChange={setHorizontalSizes}>
             <Pane minSize={50} maxSize="90%" >
               <div style={{height:'100%'}}>
@@ -243,7 +243,7 @@ const onRunHandle = () => {
             </div>
             </Pane>
           </SplitPane>
-        </div>
+        </Pane>
       </SplitPane>
     </div>
     </>

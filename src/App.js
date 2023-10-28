@@ -22,7 +22,7 @@ const App = () => {
         <Route path="/admin2023" element={<PrivatePages />}>
             <Route path="" element={<DashBoard/>} />
             <Route path="add-question" element={<AddQuestion/>}/>
-            <Route path='addtestcases' element={<AddTestCases/>}/>
+            <Route path="addtestcases" element={<AddTestCases/>}/>
         </Route>
         <Route path="*" element={<PageNotFound />} />
     </Routes>

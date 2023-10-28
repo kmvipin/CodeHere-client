@@ -31,7 +31,9 @@ const LoginSignup = (props) => {
                 const {token,...userData} = res;
                 if(res.success){
                     doLogin({token:token});
-                    callBackAfterSuccess(true);
+                    if(callBackAfterSuccess){
+                        callBackAfterSuccess(true);
+                    }
                     saveUser(userData);
                 }
                 else{
