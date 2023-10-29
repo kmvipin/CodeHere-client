@@ -5,11 +5,14 @@ import Form from 'react-bootstrap/Form';
 import logo from '../assets/images/loginLogo.jpg'
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
+import viewEye from '../assets/images/view-eye.png';
+import hideEye from '../assets/images/hide-eye.png';
 
 const Login = (props) => {
     const {onLogin,error,setForgotPass} = props;
     const [userNameEmail,setUserNameEmail] = useState('');
     const [password,setPassword] = useState('');
+    const [seePassword,setSeePassword] = useState(false);
   return (
     <div style={{marginTop:'20px',marginLeft:'10px', display:'flex', flexDirection:'column'}}>
         <div style={{flex: 1, display: 'flex', justifyContent: 'center', alignItems: 'center', marginRight:'20px',
@@ -33,8 +36,14 @@ const Login = (props) => {
             </FloatingLabel>
             <small>password</small>
             <FloatingLabel controlId="floatingPassword" label="Password">
-                <Form.Control type="password" placeholder="Password" 
+                <Form.Control type={seePassword ? "text" : "password"} placeholder="Password" 
                 onChange={(e)=>{setPassword(e.target.value)}}/>
+                <img
+                    src={seePassword ? hideEye : viewEye}
+                    alt="Password Icon"
+                    className='eye-icon'
+                    onClick={()=>{setSeePassword(!seePassword)}}
+                />
             </FloatingLabel>
             <Link style={{alignSelf:'center',marginTop:'10px'}}
                 onClick={()=>{setForgotPass(true)}}>

@@ -3,6 +3,8 @@ import { useState } from 'react';
 import Button from 'react-bootstrap/Button';
 import FloatingLabel from 'react-bootstrap/FloatingLabel';
 import Form from 'react-bootstrap/Form';
+import viewEye from '../assets/images/view-eye.png';
+import hideEye from '../assets/images/hide-eye.png';
 
 const Signup = (props) => {
   const {onSignup, error} = props;
@@ -10,6 +12,8 @@ const Signup = (props) => {
   const [password, setPassword] = useState('');
   const [userName, setUserName] = useState('');
   const [confirmPass, setConfirmPass] = useState('');
+  const [seePassword,setSeePassword] = useState(false);
+
   return (
 
     <div style={{marginTop:'20px',marginLeft:'10px', display:'flex', flexDirection:'column'}}>
@@ -27,8 +31,14 @@ const Signup = (props) => {
             </FloatingLabel>
             <small>Password</small>
             <FloatingLabel controlId="floatingPassword" label="Enter Password">
-                <Form.Control type="password" placeholder="password" 
+                <Form.Control type={seePassword ? "text" : "password"} placeholder="password" 
                 onChange={(e)=>{setPassword(e.target.value)}}/>
+                <img
+                    src={seePassword ? hideEye : viewEye}
+                    alt="Password Icon"
+                    className='eye-icon'
+                    onClick={()=>{setSeePassword(!seePassword)}}
+                />
             </FloatingLabel>
             <small>Confirm Password</small>
             <FloatingLabel controlId="floatingPassword" label="Enter Confirm Password">
