@@ -11,6 +11,7 @@ import './App.css';
 import AddTestCases from './admin/AddTestCases'
 import DashBoard from './admin/DashBoard';
 import PageNotFound from './components/PageNotFound'
+import AdminQuestionList from './admin/AdminQuestionList'
 
 const App = () => {
   return (
@@ -22,7 +23,8 @@ const App = () => {
         <Route path="/admin2023" element={<PrivatePages />}>
             <Route path="" element={<DashBoard/>} />
             <Route path="add-question" element={<AddQuestion/>}/>
-            <Route path="addtestcases" element={<AddTestCases/>}/>
+            <Route path="add-testcases" element={<AddTestCases/>}/>
+            <Route path="question-list" element={<AdminQuestionList/>}/>
         </Route>
         <Route path="*" element={<PageNotFound />} />
     </Routes>

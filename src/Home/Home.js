@@ -47,18 +47,18 @@ const Home = () =>{
   }
   const EasyCategory ={
     name : "EASY",
-    description: "This have `EASY` category where you can start",
-    color : 'green'
+    description: "It contains `EASY` category question where you can start",
+    color : '#03b903'
   };
   const MediumCategory = {
     name : "MEDIUM",
-    description : "This have `MEDIUM` category Question which you tried after good practice on easy questions",
-    color : '#caca09'
+    description : "It contains `MEDIUM` category Question which you tried after good practice on easy questions",
+    color : 'rgb(204, 204, 7)'
   };
   const HardCategory = {
     name : "HARD",
-    description : "This have `HARD` category question which you tried after good practice on medium questions",
-    color : 'red'
+    description : "It contains `HARD` category question which you tried after good practice on medium questions",
+    color : '#ff2e2e'
   }
   // Import testimonial components, content, and other necessary components
 
@@ -66,6 +66,16 @@ const Home = () =>{
     <div className='app'>
       <Nav />
       <section id="home" className="hero">
+          <div className='box'>
+            <div className="name"> 
+              <h1 >CODE</h1>
+              <h1 >HERE</h1>
+            </div>
+            <div className='quote'>
+              <p>YOUR ONE STOP DESTINATION</p>
+              <p>FOR EXCITING CHALLENGES!</p>
+            </div>
+          </div>
         <a className="cta-button" onClick={()=>{handleNavigateQuestionList(true,true,true)}}>Get Started</a>
       </section>
       <div className='bottom-container'>
