@@ -15,9 +15,9 @@ import ReactLoading from 'react-loading';
 const QuestionList = () => {
 
     const location = useLocation();
+    const searchParams = new URLSearchParams(location.search);
     const errMssg = 'Something Went Wrong!!';
     const errContent = 'Please Try Again or Check Your Internet (if any issue please contact us from Contact Us Page)';
-    const searchParams = new URLSearchParams(location.search);
     const serializedData = searchParams.get('difficulty');
     const [alertMessage, setAlertMessage] = useState();
     const [totalPageNum, setTotalPageNum] = useState(1);

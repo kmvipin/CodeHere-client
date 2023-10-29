@@ -25,6 +25,7 @@ const App = () => {
             <Route path="add-question" element={<AddQuestion/>}/>
             <Route path="add-testcases" element={<AddTestCases/>}/>
             <Route path="question-list" element={<AdminQuestionList/>}/>
+            <Route path="update-question" element={<AddQuestion/>}/>
         </Route>
         <Route path="*" element={<PageNotFound />} />
     </Routes>

@@ -8,6 +8,7 @@ import { getUser } from '../auth';
 import DynamicPagination from '../components/DynamicPagination';
 import AlertMessage from '../components/AlertMessage';
 import { toast } from 'react-toastify';
+import DeleteIcon from '../assets/images/del-icon.png'
 
 const Comments = (props) => {
     const {questionName,isLogin} = props;
@@ -119,9 +120,9 @@ const Comments = (props) => {
                 <div>
                     {value.userName}
                 </div>
-                {user && user.userName===value.userName && <div className='del-btn'
+                {user && user.userName===value.userName && <div class="del-btn"
                     onClick={()=>{handleDelComment(value.comment_id)}}>
-                    del
+                    <img src={DeleteIcon} alt="Delete"/>
                 </div>}
             </Card.Header>
             <Card.Body>
@@ -131,9 +132,6 @@ const Comments = (props) => {
                     {value.comment}
                     {' '}
                 </p>
-                {/* <footer className="blockquote-footer">
-                    
-                </footer> */}
                 </blockquote>
             </Card.Body>
         </Card>

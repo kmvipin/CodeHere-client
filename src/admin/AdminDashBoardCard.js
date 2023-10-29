@@ -5,7 +5,6 @@ import React from 'react'
 
 const AdminDashBoardCard = (props) => {
     const {title,text,color} = props;
-    console.log(props);
   return (
     <Card className="custom-card add-question" style={{backgroundColor:color}}>
         <Card.Body>

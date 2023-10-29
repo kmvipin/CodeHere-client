@@ -1,6 +1,5 @@
 import React from 'react';
 import './QuestionInfo.css';
-import { useEffect } from 'react';
 
 const QuestionInfo = (props) => {
   const { name, difficulty, topicTags, description, examples, constraints } = props.questionInfo;

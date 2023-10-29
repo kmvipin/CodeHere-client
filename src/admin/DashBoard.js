@@ -28,6 +28,25 @@ function App() {
       color:"orange"
     };
 
+    const handleNavigateQuestionList=(easy,medium,hard)=>{
+      const difficulty = {
+        easy : false,
+        medium : false,
+        hard : false,
+      }
+      if(easy){
+        difficulty.easy = true;
+      }
+      if(medium){
+        difficulty.medium = true;
+      }
+      if(hard){
+        difficulty.hard = true;
+      }
+      const serializedData = JSON.stringify(difficulty);
+      navigate(`/admin2023/question-list?difficulty=${encodeURIComponent(serializedData)}`);
+  }
+
   return (
     <div>
       <AdminNav/>
@@ -41,7 +60,7 @@ function App() {
             <div>
               <AdminDashBoardCard {...UserMessage}/>  
             </div>
-            <div onClick={()=>{navigate("/admin2023/add-question")}}>
+            <div onClick={()=>{handleNavigateQuestionList(true,true,true)}}>
               <AdminDashBoardCard {...AdminQuestionList}/>
             </div>
       </Container>

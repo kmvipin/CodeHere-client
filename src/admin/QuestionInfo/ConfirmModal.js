@@ -3,7 +3,7 @@ import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 
 function Example(props) {
-    const {show, onChangeConfirmation, onContinueModal} = props;
+    const {message, show, onChangeConfirmation, onContinueModal, cnfmBtnVariant} = props;
   return (
     <>
       <Modal
@@ -16,13 +16,13 @@ function Example(props) {
           <Modal.Title>Confirm</Modal.Title>
         </Modal.Header>
         <Modal.Body>
-          Are You Confirm To Submit This Question
+            {message}
         </Modal.Body>
         <Modal.Footer>
           <Button variant="secondary" onClick={()=>{onChangeConfirmation(false)}}>
             Close
           </Button>
-          <Button variant="primary" onClick={()=>{onContinueModal()}}>Confirm</Button>
+          <Button variant={cnfmBtnVariant} onClick={()=>{onContinueModal()}}>Confirm</Button>
         </Modal.Footer>
       </Modal>
     </>
