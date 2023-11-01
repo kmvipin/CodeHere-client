@@ -34,7 +34,7 @@ const QuestionInfo = (props) => {
                   difficulty === 'EASY'
                     ? 'green'
                     : difficulty === 'MEDIUM'
-                    ? 'yellow'
+                    ? '#c8c804'
                     : difficulty === 'HARD'
                     ? 'red'
                     : 'black',

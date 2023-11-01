@@ -17,6 +17,7 @@
     padding-left: 10px;
     border-color: #e2e8f0;
     width: 100%;
+    overflow: auto;
 }
 
 .wrong-output{

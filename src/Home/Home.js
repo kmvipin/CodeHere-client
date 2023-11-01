@@ -8,23 +8,27 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import Footer from '../Footer/Footer';
 import { useNavigate } from 'react-router-dom';
 import { saveMessage } from '../services/public-service';
+import { toast } from 'react-toastify';
+import AlertMessage from '../components/AlertMessage';
+import { useState } from 'react';
 
 const Home = () =>{
+  const [alertMessage, setAlertMessage] = useState();
   const navigate = useNavigate();
 
   const handleSubmitForm = (message,setFieldNull) =>{
     try{
         saveMessage(message)
         .then((res)=>{
-          console.log(res);
+          toast.success("Message Sent Successfully");
           setFieldNull();
         })
         .catch(err=>{
-          console.error(err);
+          setAlertMessage("Something Went Wrong");
         })
     }
     catch(err){
-      console.error(err);
+      setAlertMessage("Something Went Wrong");
     }
   }
   const handleNavigateQuestionList=(easy,medium,hard)=>{
@@ -65,6 +69,7 @@ const Home = () =>{
   return (
     <div className='app'>
       <Nav />
+      <AlertMessage message={alertMessage} content="Check yout internet connection or try again" setMessage={setAlertMessage}/>
       <section id="home" className="hero">
           <div className='box'>
             <div className="name"> 

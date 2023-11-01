@@ -28,7 +28,7 @@ export const uploadPostImage = async (image, postId) => {
 
 export const saveMessage=async (message)=>{
     try {
-        const res = await myAxios.post(`/api/public/contact/save`, message);
+        const res = await myAxios.post(`/api/public/save/contact`, message);
         return res.data;
     } catch (err) {
         throw err;
