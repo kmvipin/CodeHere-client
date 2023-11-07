@@ -50,8 +50,8 @@ const Result = (props) => {
                       <div key={index} className='error-list'>
                           <div>Message : {value.message}</div>
                           <div>Line number : {value.lineNumber} : {value.columnNumber}</div>
-                          <div>Method Name : {value.methodName}</div>
-                          <div>ClassName : {value.className}</div>
+                          {value.methodName && <div>Method Name : {value.methodName}</div>}
+                          {value.className && <div>ClassName : {value.className}</div>}
                       </div>
                   ))}
               </div>
