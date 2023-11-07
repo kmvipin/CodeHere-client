@@ -18,8 +18,9 @@ const App = () => {
     <Routes>
         <Route path="/" element={ <Home/> } />
         <Route path="/question-list" element={ <QuestionList/> } />
-        <Route path='/profile' element={<ProfilePage/>}/>
+        <Route path='/profile/:user' element={<ProfilePage/>}/>
         <Route path="/question" element={ <Question/> } />
+        <Route path="/pnf" element={<PageNotFound/>} />
         <Route path="/admin2023" element={<PrivatePages />}>
             <Route path="" element={<DashBoard/>} />
             <Route path="add-question" element={<AddQuestion/>}/>

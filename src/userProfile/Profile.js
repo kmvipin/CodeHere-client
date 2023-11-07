@@ -7,8 +7,11 @@ import { useEffect } from 'react';
 import { getProfileInfo, updatePersonProfile } from '../services/person-service';
 import AlertMessage from '../components/AlertMessage';
 import { toast } from 'react-toastify';
+import { useNavigate, useParams } from 'react-router-dom';
+import { getPublicProfileInfo } from '../services/public-service';
 
 function generateRandomData() {
+
     return {
       TotalQuestionSolved: Math.floor(Math.random() * 100),
       EasyQuestionSolved: Math.floor(Math.random() * 50),
@@ -31,6 +34,8 @@ function generateRandomData() {
 }
 
 function ProfilePage() {
+    const user = useParams().user;
+    const navigate = useNavigate();
     const defaultImage = 'https://via.placeholder.com/500';
     const initialProfileData = generateRandomData();
     const defaultAlertContent = 'You First Login';
@@ -38,6 +43,7 @@ function ProfilePage() {
     const [editedData, setEditedData] = useState();
     const [isEditing, setIsEditing] = useState(false);
     const [alertMessage, setAlertMessage] = useState();
+    const [myProfile,setMyProfile] = useState(false);
   const toggleEdit = () => {
     if (isEditing) {
       // Save the edited data and exit edit mode
@@ -60,18 +66,42 @@ function ProfilePage() {
   }
 
   useEffect(()=>{
-    try{
-      getProfileInfo()
-      .then((data)=>{
-        setProfileData(data);
-        setEditedData(data);
-      })
-      .catch((err)=>{
+    console.log(user)
+    if(user === 'my-profile'){
+      setMyProfile(true);
+      try{
+        getProfileInfo()
+        .then((data)=>{
+          setProfileData(data);
+          setEditedData(data);
+        })
+        .catch((err)=>{
+          setAlertMessage('Something Went Wrong');
+        })
+      }
+      catch(err){
         setAlertMessage('Something Went Wrong');
-      })
+      }
     }
-    catch(err){
-      setAlertMessage('Something Went Wrong');
+    else{
+      try{
+        getPublicProfileInfo(user)
+        .then(data=>{
+          setProfileData(data);
+          setEditedData(data);
+        })
+        .catch((err)=>{
+          if(err.response.status){
+            navigate(`/pnf`);
+          }
+          else{
+            setAlertMessage('Something Went Wrong');
+          }
+        })
+      }
+      catch(err){
+        setAlertMessage('Something Went Wrong');
+      }
     }
   },[]);
 
@@ -97,7 +127,7 @@ function ProfilePage() {
       <Row className="mt-4">
         <Col md={5}>
         <Card className="custom-profile-card">
-          {!isEditing && (
+          {myProfile && !isEditing && (
             <div className="edit-button" onClick={()=>{setIsEditing(true)}}>
               <i className="fas fa-pencil-alt"></i> Edit
             </div>

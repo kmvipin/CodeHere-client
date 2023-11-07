@@ -66,17 +66,6 @@ function CollapsibleExample(props) {
           <Nav className="me-auto" style={{marginLeft:""}}>
             <Nav.Link href="/#features">Features</Nav.Link>
             <Nav.Link href="/#contact">Contact</Nav.Link>
-            {/* <NavDropdown title="Dropdown" id="collapsible-nav-dropdown">
-              <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
-              <NavDropdown.Item href="#action/3.2">
-                Another action
-              </NavDropdown.Item>
-              <NavDropdown.Item href="#action/3.3">Something</NavDropdown.Item>
-              <NavDropdown.Divider />
-              <NavDropdown.Item href="#action/3.4">
-                Separated link
-              </NavDropdown.Item>
-            </NavDropdown> */}
           </Nav>
           <Nav>
             {!isNavLogin ? (<Nav.Link style={{marginRight:'10px'}} onClick={()=>{setLoginSignup(true)}}>
@@ -88,7 +77,7 @@ function CollapsibleExample(props) {
             }
           </Nav>
           {isNavLogin && <Nav>
-              <div className="profile-icon" onClick={()=>{navigate('/profile')}}>
+              <div className="profile-icon" onClick={()=>{navigate('/profile/my-profile')}}>
                 <FaUser />
               </div>
           </Nav>}

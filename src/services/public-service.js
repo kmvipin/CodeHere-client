@@ -34,3 +34,12 @@ export const saveMessage=async (message)=>{
         throw err;
     }
 }
+
+export const getPublicProfileInfo=async (userName)=>{
+    try {
+        const res = await myAxios.get(`/api/public/user-profile/info/${userName}`);
+        return res.data;
+    } catch (err) {
+        throw err;
+    }
+}
