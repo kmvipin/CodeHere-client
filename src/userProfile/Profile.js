@@ -9,41 +9,20 @@ import AlertMessage from '../components/AlertMessage';
 import { toast } from 'react-toastify';
 import { useNavigate, useParams } from 'react-router-dom';
 import { getPublicProfileInfo } from '../services/public-service';
-
-function generateRandomData() {
-
-    return {
-      TotalQuestionSolved: Math.floor(Math.random() * 100),
-      EasyQuestionSolved: Math.floor(Math.random() * 50),
-      MediumQuestionSolved: Math.floor(Math.random() * 30),
-      HardQuestionSolved: Math.floor(Math.random() * 20),
-      first_name: 'John',
-      last_name: 'Doe',
-      image: 'https://via.placeholder.com/500', // Example image URL
-      mobileNumber: '123-456-7890',
-      email: 'johndoe@example.com',
-      userName: 'johndoe123',
-      age: Math.floor(Math.random() * 50 + 20),
-      date_of_birth: '1990-01-01', // Example date format
-      address: '123 Main St, City, Country',
-      gitHub: 'https://github.com/johndoe',
-      LinkedIn: 'https://linkedin.com/in/johndoe',
-      Twitter: 'https://twitter.com/johndoe',
-      website: 'https://johndoe.com',
- };
-}
+import AvatarList from '../components/AvatarList';
 
 function ProfilePage() {
     const user = useParams().user;
     const navigate = useNavigate();
-    const defaultImage = 'https://via.placeholder.com/500';
-    const initialProfileData = generateRandomData();
+    const [currentAvatar,setCurrentAvatar] = useState('https://via.placeholder.com/500');
     const defaultAlertContent = 'You First Login';
     const [profileData, setProfileData] = useState();
     const [editedData, setEditedData] = useState();
     const [isEditing, setIsEditing] = useState(false);
     const [alertMessage, setAlertMessage] = useState();
     const [myProfile,setMyProfile] = useState(false);
+    const [avatarName, setAvatarName] = useState(null);
+
   const toggleEdit = () => {
     if (isEditing) {
       // Save the edited data and exit edit mode
@@ -116,7 +95,29 @@ function ProfilePage() {
       });
       setIsEditing(false);
     }
+    if(profileData && profileData.person.avatarName != null){
+      setAvatarName(profileData.person.avatarName);
+    }
   },[profileData]);
+
+  useEffect(()=>{
+    if(avatarName != null){
+      import(`../assets/images/avatar/${avatarName}.jpg`)
+      .then((module) => {
+        // Once the module is loaded, set it in the state
+        setCurrentAvatar(module.default);
+      })
+      .catch((error) => {
+        console.error('Error loading avatar:', error);
+      });
+
+      setEditedData({ ...editedData,
+                      person: {
+                        ...editedData.person,
+                        avatarName: avatarName
+                      } })
+    }
+  },[avatarName]);
 
   if(profileData){
   return (
@@ -132,7 +133,8 @@ function ProfilePage() {
               <i className="fas fa-pencil-alt"></i> Edit
             </div>
           )}
-          <Card.Img variant="top" src={profileData.person.image ? profileData.image : defaultImage} className="profile-image" />
+          <Card.Img variant="top" src={currentAvatar} className="profile-image" />
+          {isEditing && <AvatarList setCurrentAvatar={setCurrentAvatar} setAvatarName={setAvatarName}/>}
           <Card.Body>
           <Card.Title className="text-center">
             {isEditing ? (
