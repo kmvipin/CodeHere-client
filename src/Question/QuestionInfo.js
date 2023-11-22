@@ -64,7 +64,7 @@ const QuestionInfo = (props) => {
         </div>
         <div style={{marginTop:"10px"}}>
           <strong>Description: </strong> 
-          <span style={{ whiteSpace: 'pre-line' }}>{description}</span>
+          <span style={{ whiteSpace: 'pre-line' }}><div dangerouslySetInnerHTML={{ __html: description }} style={{whiteSpace:'pre'}}/></span>
         </div>
       </div>
       {examples && (
@@ -77,7 +77,7 @@ const QuestionInfo = (props) => {
                         <strong>Input:</strong>
                         <ul style={{listStyleType: 'none'}}>
                         {example.input.map((inputItem, inputIndex) => (
-                            <li key={inputIndex}>{inputItem}</li>
+                            <li key={inputIndex} style={{whiteSpace:'pre'}}>{inputItem}</li>
                         ))}
                         </ul>
                     </div>
@@ -85,7 +85,7 @@ const QuestionInfo = (props) => {
                         <strong>Output:</strong>
                         <ul style={{listStyleType: 'none'}}>
                         {example.output.map((outputItem, outputIndex) => (
-                            <li key={outputIndex}>{outputItem}</li>
+                            <li key={outputIndex} style={{whiteSpace:'pre'}}>{outputItem}</li>
                         ))}
                         </ul>
                     </div>
