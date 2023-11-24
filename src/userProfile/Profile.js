@@ -98,7 +98,7 @@ function ProfilePage() {
             navigate(`/pnf`);
           }
           else{
-            setAlertMessage('Something Went Wrong');
+            setAlertMessage('Something Went Wrong..');
           }
         })
       }
@@ -127,8 +127,7 @@ function ProfilePage() {
   useEffect(()=>{
     if(avatarName != null){
       import(`../assets/images/avatar/${avatarName}.jpg`)
-      .then((module) => {
-        // Once the module is loaded, set it in the state
+      .then((module) => { 
         setCurrentAvatar(module.default);
       })
       .catch((error) => {
@@ -279,7 +278,7 @@ function ProfilePage() {
             <h2>CodeHere Profile</h2>
           </div>
           <ListGroup className="custom-list">
-            
+
             <ListGroup.Item style={{cursor:'pointer'}} 
             onClick={()=>{handleNavigateQuestionList(true,true,true,true,false,false)}}
               className="list-item">
