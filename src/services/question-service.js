@@ -17,11 +17,11 @@ export const getQuestionByName=async (name)=>{
     }
 }
 
-export const getQuestionListByDifficulty = async (page_num,quantity,difficulty) => {
+export const getQuestionListByDifficulty = async (page_num,quantity,questionListReq,userName) => {
     try{
         const res = await privateAxios
-        .post(`/api/public/questions/get-name?page_num=${page_num}&quantity=${quantity}`,
-        difficulty);
+        .post(`/api/public/questions/get-name?page_num=${page_num}&quantity=${quantity}&user_name=${userName}`,
+        questionListReq);
         return res.data;
     }
     catch(err){
@@ -56,20 +56,20 @@ export const getQuestionInfo=async (questionName)=>{
     }
 };
 
-export const delQuestionComment=(commentId)=>{
-    return privateAxios.post(`/api/question/comments/delete?comment_id=${commentId}`)
-    .then((res)=>{
+export const delQuestionComment=async (commentId)=>{
+    try {
+        const res = await privateAxios.post(`/api/question/comments/delete?comment_id=${commentId}`);
         return res.data;
-    })
-    .catch((err)=>{
+    } catch (err) {
         throw err;
-    });
+    }
 };
 
-export const getQuestionListInfo=()=>{
-    return myAxios.get(`/api/public/get/question-list-info`)
-    .then((res)=>res.data)
-    .catch((err)=>{
+export const getQuestionListInfo=async (questionListReq,userName)=>{
+    try {
+        const res = await myAxios.post(`/api/public/get/question-list-info?userName=${userName}`, questionListReq);
+        return res.data;
+    } catch (err) {
         throw err;
-    });
+    }
 };

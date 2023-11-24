@@ -33,21 +33,22 @@ const Home = () =>{
   }
   const handleNavigateQuestionList=(easy,medium,hard)=>{
       const difficulty = {
-        easy : false,
-        medium : false,
-        hard : false,
+        easy : easy,
+        medium : medium,
+        hard : hard,
       }
-      if(easy){
-        difficulty.easy = true;
+      const statusInfo = {
+        pending : true,
+        solved : true,
+        notAttempted : true,
       }
-      if(medium){
-        difficulty.medium = true;
+      const questionListReq = {
+        difficultyLevel : difficulty,
+        statusInfo : statusInfo,
       }
-      if(hard){
-        difficulty.hard = true;
-      }
-      const serializedData = JSON.stringify(difficulty);
-      navigate(`/question-list?difficulty=${encodeURIComponent(serializedData)}`);
+
+      const serializedData = JSON.stringify(questionListReq);
+      navigate(`/question-list?questionListReq=${encodeURIComponent(serializedData)}`);
   }
   const EasyCategory ={
     name : "EASY",

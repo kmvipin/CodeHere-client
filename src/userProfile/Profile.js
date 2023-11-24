@@ -44,8 +44,32 @@ function ProfilePage() {
     return fullName;
   }
 
+  const handleNavigateQuestionList=(easy,medium,hard,solved,pending,notAttempted)=>{
+      const difficulty = {
+        easy : easy,
+        medium : medium,
+        hard : hard,
+      }
+      const statusInfo = {
+        solved : solved,
+        pending : pending,
+        notAttempted : notAttempted,
+      }
+      const questionListReq = {
+        difficultyLevel : difficulty,
+        statusInfo : statusInfo,
+      }
+
+      const serializedData = JSON.stringify(questionListReq);
+      try{
+        navigate(`/question-list?username=${profileData.person.userName}&&questionListReq=${encodeURIComponent(serializedData)}`);
+      }
+      catch(err){
+        setAlertMessage("Something Went Wrong");
+      }
+  }
+
   useEffect(()=>{
-    console.log(user)
     if(user === 'my-profile'){
       setMyProfile(true);
       try{
@@ -255,10 +279,31 @@ function ProfilePage() {
             <h2>CodeHere Profile</h2>
           </div>
           <ListGroup className="custom-list">
-            <ListGroup.Item className="list-item">Total Questions Solved: {profileData.codeHereProfile.totalQuestionSolved}</ListGroup.Item>
-            <ListGroup.Item className="list-item">Easy Questions Solved: {profileData.codeHereProfile.easyQuestionSolved}</ListGroup.Item>
-            <ListGroup.Item className="list-item">Medium Questions Solved: {profileData.codeHereProfile.mediumQuestionSolved}</ListGroup.Item>
-            <ListGroup.Item className="list-item">Hard Questions Solved: {profileData.codeHereProfile.hardQuestionSolved}</ListGroup.Item>
+            
+            <ListGroup.Item style={{cursor:'pointer'}} 
+            onClick={()=>{handleNavigateQuestionList(true,true,true,true,false,false)}}
+              className="list-item">
+              Total Questions Solved: {profileData.codeHereProfile.totalQuestionSolved}
+             </ListGroup.Item>
+
+            <ListGroup.Item style={{cursor:'pointer'}} 
+            onClick={()=>{handleNavigateQuestionList(true,false,false,true,false,false)}}
+             className="list-item">
+              Easy Questions Solved: {profileData.codeHereProfile.easyQuestionSolved}
+              </ListGroup.Item>
+
+            <ListGroup.Item style={{cursor:'pointer'}} 
+            onClick={()=>{handleNavigateQuestionList(false,true,false,true,false,false)}} 
+            className="list-item">
+              Medium Questions Solved: {profileData.codeHereProfile.mediumQuestionSolved}
+              </ListGroup.Item>
+
+            <ListGroup.Item style={{cursor:'pointer'}}
+             onClick={()=>{handleNavigateQuestionList(false,false,true,true,false,false)}} 
+             className="list-item">
+              Hard Questions Solved: {profileData.codeHereProfile.hardQuestionSolved}
+              </ListGroup.Item>
+
           </ListGroup>
           <div className="text-center mt-4">
             <h2>Social Handles</h2>

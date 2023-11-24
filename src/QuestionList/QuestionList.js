@@ -18,19 +18,27 @@ const QuestionList = () => {
     const searchParams = new URLSearchParams(location.search);
     const errMssg = 'Something Went Wrong!!';
     const errContent = 'Please Try Again or Check Your Internet (if any issue please contact us from Contact Us Page)';
-    const serializedData = searchParams.get('difficulty');
+    const serializedData = searchParams.get('questionListReq');
+    const userName = searchParams.get('username');
     const [alertMessage, setAlertMessage] = useState();
     const [totalPageNum, setTotalPageNum] = useState(1);
     const [currentPage, setCurrentPage] = useState(1);
 
-    const difficulty = JSON.parse(decodeURIComponent(serializedData));
+    const questionListReq = JSON.parse(decodeURIComponent(serializedData));
     const navigate = useNavigate();
     const [data,setData] = useState();
     const [loading,setLoading] = useState(true);
-    const underline = "2px solid gray";
 
     const handlePageChange = (newPage) =>{
         setCurrentPage(newPage);
+        getQuestionListByDifficulty(1,15,questionListReq,userName)
+          .then(res=>{
+              setData(res);
+              setLoading(false);
+          })
+          .catch(err=>{
+              setAlertMessage(errMssg);
+          })
     }
 
     const setPageNum=(limit,totalQuestionNum)=>{
@@ -43,10 +51,10 @@ const QuestionList = () => {
 
     useEffect(() => {
         window.scrollTo(0, 0)
-        getQuestionListInfo()
+        getQuestionListInfo(questionListReq,userName)
         .then((data)=>{
-          setPageNum(20,data.totalQuestionNum);
-          getQuestionListByDifficulty(1,5,difficulty)
+          setPageNum(15,data.totalQuestionNum);
+          getQuestionListByDifficulty(1,15,questionListReq,userName)
           .then(res=>{
               setData(res);
               setLoading(false);
@@ -69,7 +77,7 @@ const QuestionList = () => {
           <Table striped bordered hover>
             <thead>
               <tr>
-                <th>Status</th>
+                {!userName && <th>Status</th>}
                 <th>Name</th>
                 <th>Topic Tags</th>
                 <th>Difficulty</th>
@@ -79,7 +87,7 @@ const QuestionList = () => {
               {data &&
                 data.map((obj, index) => (
                   <tr key={index}>
-                    <td>
+                    {!userName && <td>
                       <span
                         style={{
                           color:
@@ -92,7 +100,7 @@ const QuestionList = () => {
                       >
                         {obj.status || '--'}
                       </span>
-                    </td>
+                    </td>}
                     <td
                       className='question-name'
                       onClick={() => {
