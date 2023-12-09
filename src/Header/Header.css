@@ -1,0 +1,62 @@
+@import url('https://fonts.googleapis.com/css2?family=Karla:wght@800&display=swap');
+
+.header{
+    background-color: #d9d8dc;
+    height: auto;
+    -webkit-box-shadow: inset 46px 83px 148px -40px rgba(186,97,237,1);
+    -moz-box-shadow: inset 46px 83px 148px -40px rgba(186,97,237,1);
+    box-shadow: inset 46px 53px 100px -40px rgb(222, 171, 252);
+}
+
+.header-box{
+    padding: 0 2rem 1rem 2rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+.header-box .left{
+    margin-top: 12vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.header-box .left .para{
+    margin: 20px 0;
+}
+
+.header-box .left h1,
+.header-box .left p{
+    color: rgb(80, 77, 77);
+    margin: 0.3rem;
+}
+
+.header-box .left h1{
+    font-family: 'Karla', sans-serif;
+    font-size: 40px;
+}
+
+.header-box .left button{
+    height: max-content;
+    width: max-content;
+    padding: 10px 40px;
+    margin: 2rem 0;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    background-color: #f6b44f;
+    box-shadow: 8px 8px 30px 0 rgba(158, 156, 156, 0.2), 
+    0 6px 20px 0 rgba(158, 156, 156, 0.2),
+    inset 2px 2px 15px 0 orange, inset 0 5px 20px 0 orange;
+}
+
+.header-box .right{
+    margin-top: 12vh;
+}
+
+.header-box .right img{
+    height: 12rem;
+    width: auto;
+}

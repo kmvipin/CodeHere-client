@@ -64,7 +64,7 @@ const QuestionInfo = (props) => {
         </div>
         <div style={{marginTop:"10px"}}>
           <strong>Description: </strong> 
-          <span style={{ whiteSpace: 'pre-line' }}><div dangerouslySetInnerHTML={{ __html: description }} style={{whiteSpace:'pre'}}/></span>
+          <span style={{ whiteSpace: 'pre-line' }}><div dangerouslySetInnerHTML={{ __html: description }}/></span>
         </div>
       </div>
       {examples && (

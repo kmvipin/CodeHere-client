@@ -11,6 +11,7 @@ import { saveMessage } from '../services/public-service';
 import { toast } from 'react-toastify';
 import AlertMessage from '../components/AlertMessage';
 import { useState } from 'react';
+import Header from '../Header/Header';
 
 const Home = () =>{
   const [alertMessage, setAlertMessage] = useState();
@@ -69,21 +70,9 @@ const Home = () =>{
 
   return (
     <div className='app'>
-      <Nav />
+      <Nav isFixed={true}/>
       <AlertMessage message={alertMessage} content="Check yout internet connection or try again" setMessage={setAlertMessage}/>
-      <section id="home" className="hero">
-          <div className='box'>
-            <div className="name"> 
-              <h1 >CODE</h1>
-              <h1 >HERE</h1>
-            </div>
-            <div className='quote'>
-              <p>YOUR ONE STOP DESTINATION</p>
-              <p>FOR EXCITING CHALLENGES!</p>
-            </div>
-          </div>
-        <a className="cta-button" onClick={()=>{handleNavigateQuestionList(true,true,true)}}>Get Started</a>
-      </section>
+      <Header handleNavigateQuestionList={handleNavigateQuestionList}/>
       <div className='bottom-container'>
       <section id="features" className="section">
         <h2 className="section-title">Featured Categories</h2>
