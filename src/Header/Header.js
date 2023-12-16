@@ -16,8 +16,8 @@ const Header = (props) => {
             <h1>Skills</h1>
           </div>
           <div className="para">
-            <p>Commodo sint id id enim occaecat aliqua nisi.</p>
-            <p>Sit dolore cupidatat nulla culpa enim sit nostrud.</p>
+            <p>Empowering beginners and refining logic skills.</p>
+            <p>Elevate your coding journey with structured learning paths and hands-on challenges.</p>
           </div>
           <div>
             <button onClick={()=>{handleNavigateQuestionList(true,true,true)}}>Explore</button>

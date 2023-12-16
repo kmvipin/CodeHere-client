@@ -98,7 +98,7 @@ header .profile-icon svg{
       width:100%;
       flex-direction: column;
       align-items: center;
-      transition: right 0.5s linear;
+      transition: right 0.25s linear;
   }
    
   header .menu{
@@ -108,5 +108,9 @@ header .profile-icon svg{
   }
   #chk1:checked ~ ul{
       right: 0;
+  }
+
+  label{
+    cursor: pointer;
   }
 }

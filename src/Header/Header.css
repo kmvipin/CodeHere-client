@@ -36,6 +36,7 @@
 .header-box .left h1{
     font-family: 'Karla', sans-serif;
     font-size: 40px;
+    text-align: left;
 }
 
 .header-box .left button{
@@ -59,4 +60,19 @@
 .header-box .right img{
     height: 12rem;
     width: auto;
+}
+
+@media(max-width:650px){
+    .header-box{
+        flex-direction: column-reverse;
+        align-items: center;
+    }
+
+    .header-box .left{
+        align-items: center;
+    }
+
+    .header-box .left h1{
+        text-align: center;
+    }
 }
