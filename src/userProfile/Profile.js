@@ -151,9 +151,13 @@ function ProfilePage() {
       <Row className="mt-4">
         <Col md={5}>
         <Card className="custom-profile-card">
-          {myProfile && !isEditing && (
+          {myProfile && !isEditing ? (
             <div className="edit-button" onClick={()=>{setIsEditing(true)}}>
               <i className="fas fa-pencil-alt"></i> Edit
+            </div>
+          ):(
+            <div className="edit-button" onClick={()=>{setIsEditing(false)}}>
+              <i className="fas fa-pencil-alt"></i> close
             </div>
           )}
           <Card.Img variant="top" src={currentAvatar} className="profile-image" />
