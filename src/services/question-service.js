@@ -20,7 +20,7 @@ export const getQuestionByName=async (name)=>{
 export const getQuestionListByDifficulty = async (page_num,quantity,questionListReq,userName) => {
     try{
         const res = await privateAxios
-        .post(`/api/public/questions/get-name?page_num=${page_num}&quantity=${quantity}&user_name=${userName}`,
+        .post(`/api/public/questions/get-name?page_num=${page_num}&quantity=${quantity}${(userName?`&user_name=${userName}`:'')}`,
         questionListReq);
         return res.data;
     }
@@ -67,7 +67,7 @@ export const delQuestionComment=async (commentId)=>{
 
 export const getQuestionListInfo=async (questionListReq,userName)=>{
     try {
-        const res = await myAxios.post(`/api/public/get/question-list-info?userName=${userName}`, questionListReq);
+        const res = await myAxios.post(`/api/public/get/question-list-info${(userName?`?userName=${userName}`:'')}`, questionListReq);
         return res.data;
     } catch (err) {
         throw err;
