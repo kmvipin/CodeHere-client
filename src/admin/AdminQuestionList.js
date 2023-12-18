@@ -22,18 +22,17 @@ const QuestionList = () => {
     const errMssg = 'Something Went Wrong!!';
     const errContent = 'Please Try Again or Check Your Internet (if any issue please contact us from Contact Us Page)';
     const searchParams = new URLSearchParams(location.search);
-    const serializedData = searchParams.get('difficulty');
+    const serializedData = searchParams.get('questionListReq');
     const [alertMessage, setAlertMessage] = useState();
     const [totalPageNum, setTotalPageNum] = useState(1);
     const [currentPage, setCurrentPage] = useState(1);
     const [showConfirmation, setShowConfirmation] = useState(false);
 
-    const difficulty = JSON.parse(decodeURIComponent(serializedData));
+    const questionListReq = JSON.parse(decodeURIComponent(serializedData));
     const navigate = useNavigate();
     const [data,setData] = useState();
     const [loading,setLoading] = useState(true);
     const [toDeleteQuestionName, setToDeleteQuestionName] = useState();
-    const underline = "2px solid gray";
 
     const handlePageChange = (newPage) =>{
         setCurrentPage(newPage);
@@ -80,10 +79,10 @@ const QuestionList = () => {
 
     useEffect(() => {
         window.scrollTo(0, 0)
-        getQuestionListInfo()
+        getQuestionListInfo(questionListReq,null)
         .then((data)=>{
           setPageNum(20,data.totalQuestionNum);
-          getQuestionListByDifficulty(1,5,difficulty)
+          getQuestionListByDifficulty(1,5,questionListReq,null)
           .then(res=>{
               setData(res);
               setLoading(false);
