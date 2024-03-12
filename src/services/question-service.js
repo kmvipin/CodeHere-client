@@ -66,7 +66,6 @@ export const delQuestionComment=async (commentId)=>{
 };
 
 export const getQuestionListInfo=async (questionListReq,userName)=>{
-    console.log(questionListReq);
     try {
         const res = await myAxios.post(`/api/public/get/question-list-info${(userName?`?userName=${userName}`:'')}`, questionListReq);
         return res.data;
