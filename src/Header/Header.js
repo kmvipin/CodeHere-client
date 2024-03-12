@@ -48,13 +48,13 @@ const Header = (props) => {
   return (
     <div className="flex flex-col min-h-screen">
       <main className="flex-1">
-        <section className="w-full py-12 pt-7 md:py-24">
+        <section className="w-full pt-24 md:py-24">
           <div className="container flex flex-col items-center justify-center gap-4 px-4 text-center md:gap-10 md:px-6">
             <div className="space-y-3">
-              <div className="flex">
+              <div className="flex justify-center">
                 <h1 className="text-4xl font-bold tracking-tighter 
                 sm:text-5xl md:text-6xl mr-0">{display}</h1>
-                <span className="text-4xl sm:text-5xl md:text-6xl text-end pt-3" style={{display:(blink ? 'block' : 'none')}}>|</span>
+                <span className="text-4xl sm:text-5xl md:text-6xl pt-3" style={{display:(blink ? 'block' : 'none')}}>|</span>
               </div>
               <p className="mx-auto max-w-[600px] text-gray-500 md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed dark:text-gray-400">
                 Elevate your coding journey with structured learning paths and
