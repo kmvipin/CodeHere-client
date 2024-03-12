@@ -48,7 +48,7 @@ const Header = (props) => {
   return (
     <div className="flex flex-col min-h-screen">
       <main className="flex-1">
-        <section className="w-full pt-24 md:py-24">
+        <section className="w-full pt-28">
           <div className="container flex flex-col items-center justify-center gap-4 px-4 text-center md:gap-10 md:px-6">
             <div className="space-y-3">
               <div className="flex justify-center">
