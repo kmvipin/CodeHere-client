@@ -51,20 +51,33 @@ const Home = () =>{
       const serializedData = JSON.stringify(questionListReq);
       navigate(`/question-list?questionListReq=${encodeURIComponent(serializedData)}`);
   }
+
+  const navigateToList = (difficulty) =>{
+    if(difficulty === "EASY"){
+      handleNavigateQuestionList(true,false,false);
+    }
+    else if(difficulty === "MEDIUM"){
+      handleNavigateQuestionList(false,true,false);
+    }
+    else{
+      handleNavigateQuestionList(false,false,true);
+    }
+  }
+
   const EasyCategory ={
     name : "EASY",
-    description: "It contains `EASY` category question where you can start",
-    color : '#03b903'
+    description: "Questions are easy.",
+    quantity : 4,
   };
   const MediumCategory = {
     name : "MEDIUM",
-    description : "It contains `MEDIUM` category Question which you tried after good practice on easy questions",
-    color : 'rgb(204, 204, 7)'
+    description : "Questions are moderate.",
+    quantity : 1,
   };
   const HardCategory = {
     name : "HARD",
-    description : "It contains `HARD` category question which you tried after good practice on medium questions",
-    color : '#ff2e2e'
+    description : "Questions are hard",
+    quantity : 1,
   }
   // Import testimonial components, content, and other necessary components
 
@@ -73,22 +86,25 @@ const Home = () =>{
       <Nav isFixed={true}/>
       <AlertMessage message={alertMessage} content="Check yout internet connection or try again" setMessage={setAlertMessage}/>
       <Header handleNavigateQuestionList={handleNavigateQuestionList}/>
+      <hr className="mx-5"></hr>
       <div className='bottom-container'>
-      <section id="features" className="section">
-        <h2 className="section-title">Featured Categories</h2>
-        <div className="category-container">
-          <div onClick={()=>{handleNavigateQuestionList(true,false,false)}}>
-            <CategoryCard {...EasyCategory} />
+      <section id="features" className="section w-full py-12">
+          <div className="container grid items-center justify-center gap-4 px-4 text-center md:gap-10 md:px-6">
+            <div className="space-y-2">
+              <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">Explore by Difficulty</h2>
+              <p className="mx-auto max-w-[600px] text-gray-500 md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed dark:text-gray-400">
+                Choose your level of difficulty and start practicing.
+              </p>
+            </div>
           </div>
-          <div onClick={()=>{handleNavigateQuestionList(false,true,false)}}>
-            <CategoryCard {...MediumCategory} />
-          </div>
-          <div onClick={()=>{handleNavigateQuestionList(false,false,true)}}>
-            <CategoryCard {...HardCategory}/>
-          </div>
+        <div className="container grid max-w-3xl items-center justify-center gap-4 px-4 md:gap-8 md:px-6 lg:grid-cols-3 mt-20">
+            <CategoryCard {...EasyCategory} navigateToList={navigateToList}/>
+            <CategoryCard {...MediumCategory} navigateToList={navigateToList}/>
+            <CategoryCard {...HardCategory} navigateToList={navigateToList}/>
           {/* Add more CategoryCard components for additional categories */}
         </div>
       </section>
+      <hr className="mx-5"></hr>
       <Container id="about" className="about-section">
         <Row>
           <Col>

@@ -146,7 +146,7 @@ function ProfilePage() {
   return (
     <div>
       <AlertMessage message={alertMessage} content={defaultAlertContent} setMessage={setAlertMessage}/>
-    <Nav/>
+    <Nav isProfilePage={true}/>
     <Container>
       <Row className="mt-4">
         <Col md={5}>

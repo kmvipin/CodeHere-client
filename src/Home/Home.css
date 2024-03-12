@@ -9,53 +9,6 @@ body {
 }
   
   
-  /* Hero Section Styles */
-  .hero {
-    border-top: 2px solid #333;
-    background-image: url('../assets/images/hero.png');
-    background-size: cover;
-    background-position:center;
-    background-attachment: fixed;
-    width: 100%;
-    color: #fff;
-    text-align: center;
-    margin-left: 5px;
-    margin-right: 5px;
-    height: 75vh;
-    border-radius: 8px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-  }
-  
-  .hero h1 {
-    font-size: 45px;
-  }
-  
-  .hero p {
-    font-size: 25px;
-    margin: 20px 0;
-  }
-  
-  .cta-button {
-    display: inline-block;
-    cursor: pointer;
-    padding: 10px 20px;
-    background-color: #ff5722;
-    color: #fff;
-    text-decoration: none;
-    border-radius: 5px;
-    font-weight: bold;
-    transition: background-color 0.3s;
-    align-self: center;
-    margin-bottom: 10px;
-  }
-  
-  .cta-button:hover {
-    background-color: #ff8855;
-  }
-  
   /* Featured Categories Styles */
   .category-container {
     display: flex;
@@ -103,50 +56,3 @@ body {
   .contact-section{
     margin-bottom: 20px;
   }
-
-  .hero .box{
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    width: auto;
-    padding: 10px;
-    background-color: transparent;
-    border-radius: 0%;
-    overflow: hidden;
-  }
-
-.hero .box .name{
-  border-right: 5px solid white;
-  padding: 30px;
-  margin: 30px;
-}
-
-.hero .box .name h1{
-  font-family: 'Roboto Slab', sans-serif;
-  font-size: 82px;
-  font-weight: bolder;
-  color: #ffff8e;
-  margin: 0;
-}
-
-.hero .box .quote p{
-  font-size: 22px;
-  font-weight: 400;
-  color: white;
-  font-family: 'Roboto Slab', serif;
-  margin: 0;
-}
-
-@media (max-width: 700px) {
-  .hero .box .name {
-    border-right: none;
-    border-bottom: 5px solid white;
-  }
-}
-
-@media (max-width: 700px) {
-  .hero .box {
-    flex-direction: column;
-  }
-}

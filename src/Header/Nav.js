@@ -5,6 +5,8 @@ import { FaUser } from 'react-icons/fa';
 import { doLogout, isLogin } from '../auth';
 import { logOut } from '../services/person-service';
 import AlertMessage from '../components/AlertMessage';
+import { Link } from 'react-router-dom';
+import { Button } from 'react-bootstrap';
 
 import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -15,11 +17,10 @@ import logo from '../assets/images/codehere-logo.png';
 
 function CollapsibleExample(props) {
   const navigate = useNavigate();
-  const {loginForm, loginSignupSync,isFixed} = props;
+  const {loginForm, loginSignupSync,isProfilePage} = props;
   const [loginSignup,setLoginSignup] = useState(false);
   const [isNavLogin,setIsNavLogin] = useState(isLogin());
   const [alertMessage, setAlertMessage] = useState();
-  const [scrolling, setScrolling] = useState(false);
 
   const handleLogout = () =>{
     if(loginSignupSync){
@@ -55,71 +56,50 @@ function CollapsibleExample(props) {
     }
   });
 
-  useEffect(() => {
-    const handleScroll = () => {
-      if (window.scrollY > 100) {
-        setScrolling(true);
-      } else {
-        setScrolling(false);
-      }
-    };
-
-    window.addEventListener('scroll', handleScroll);
-
-    // Cleanup the event listener when the component is unmounted
-    return () => {
-      window.removeEventListener('scroll', handleScroll);
-    };
-  }, []);
-
   return (
     <div>
       <AlertMessage message={alertMessage} content={"Try Again!!"} setMessage={setAlertMessage}/>
       <LoginSignup showForm={loginSignup} setShowForm={setLoginSignup} 
       callBackAfterSuccess={handleAfterLogin}/>
-      <header style={{background:(isFixed?(scrolling?'rgb(143 143 143 / 64%)':'transparent'):'#8f8f8f'), position:(isFixed?'fixed':'relative')}}>
-        <input type="checkbox" name="" id="chk1" />
-        <div className="logo" onClick={()=>{navigate('/')}}>
-          <img src={logo}/>
-        </div>
-        {/* <div className="search-box">
-          <form>
-            <input type="text" name="search" id="srch" placeholder="Search" />
-            <button type="submit">
-              <FontAwesomeIcon icon={faSearch} />
-            </button>
-          </form>
-        </div> */}
-        <ul>
-          <li>
-            <a href="/#features">Features</a>
-          </li>
-          <li>
-            <a href="/#contact">Contact</a>
-          </li>
-          <li>
-            {!isNavLogin ? (<a href="#" onClick={()=>{setLoginSignup(true)}}>Login/SignUp</a>):
-            (<a href='#' onClick={()=>{handleLogout()}}>LogOut</a>)}
-          </li>
-          <li>
-            <a href="mailto:vk783838@gmail.com">
+      <header className="flex-initial w-full py-4 border-t bg-gray-100 dark:bg-gray-800 h-[55px]">
+        <div className="container flex items-center justify-between px-4 md:px-6">
+          <div className="flex items-center space-x-2 cursor-pointer" onClick={()=>{navigate('/')}}>
+              <img src={logo} className="bg-transparent h-[35px] w-auto"/>
+          </div>
+          <nav className="hidden space-x-4 text-[15px] font-semibold lg:flex w-9/12">
+            <a
+              className="text-gray-900/90 hover:text-gray-900/100 dark:text-gray-50/90 dark:hover:text-gray-50 no-underline"
+              href="/#features"
+            >
+              Features
+            </a>
+            <a
+              className="text-gray-900/90 hover:text-gray-900/100 dark:text-gray-50/90 dark:hover:text-gray-50 no-underline"
+              href="/#contact"
+            >
+              Discuss
+            </a>
+          </nav>
+          <div className="flex items-center space-x-4">
+            <a href="mailto:vk783838@gmail.com" className="text-black">
               <FontAwesomeIcon icon={faGoogle} />
             </a>
-            <a href="https://www.linkedin.com/in/vipin-886bab25a/">
-              <FontAwesomeIcon icon={faLinkedin} />
+            <a href="https://www.linkedin.com/in/vipin-886bab25a/" className="text-black" target='_blank'>
+              <FontAwesomeIcon icon={faLinkedin}/>
             </a>
-            <a href="https://github.com/kmvipin">
-              <FontAwesomeIcon icon={faGithub} />
+            <a href="https://github.com/kmvipin" className="text-black" target="_blank">
+              <FontAwesomeIcon icon={faGithub}/>
             </a>
-          </li>
-          {isNavLogin && <div className="profile-icon" onClick={()=>{navigate('/profile/my-profile')}}>
-                <FaUser />
-          </div>}
-        </ul>
-        <div className="menu">
-          <label htmlFor="chk1">
-            <FontAwesomeIcon icon={faBars} />
-          </label>
+            {isNavLogin && !isProfilePage ? (<Button size="sm" variant="outline-dark" onClick={()=>{navigate('/profile/my-profile')}}>
+              Profile
+            </Button>) :
+            !isProfilePage && <Button size="sm" variant="outline-dark" onClick={()=>{setLoginSignup(true)}}>
+              Log In
+          </Button>}
+          {isProfilePage && <Button size="sm" variant="outline-dark" onClick={()=>{handleLogout()}}>
+              Log Out
+          </Button>}
+          </div>
         </div>
       </header>
     </div>
