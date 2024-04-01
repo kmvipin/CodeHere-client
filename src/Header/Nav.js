@@ -20,7 +20,7 @@ function CollapsibleExample(props) {
   const {loginForm, loginSignupSync,isProfilePage} = props;
   const [loginSignup,setLoginSignup] = useState(false);
   const [isNavLogin,setIsNavLogin] = useState(isLogin());
-  const [alertMessage, setAlertMessage] = useState(); 
+  const [alertMessage, setAlertMessage] = useState();
 
   const handleLogout = () =>{
     if(loginSignupSync){
