@@ -375,6 +375,7 @@ else{
   return(
     <div>
       <AlertMessage message={alertMessage} content={defaultAlertContent} setMessage={setAlertMessage}/>
+      <Nav isProfilePage={true}/>
           Loading...
       </div>
   )
