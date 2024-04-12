@@ -100,7 +100,7 @@ const Comments = (props) => {
         setUser(getUser());
     },[isLogin]);
   return (
-    <div className='comments-container'>
+    <div className='comments-container h-full'>
     <AlertMessage message={alertMessage} content={alertDescription} setMessage={setAlertMessage}/>
     <div className='form-container'>
         <Form>

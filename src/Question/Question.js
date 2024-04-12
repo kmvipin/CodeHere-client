@@ -41,12 +41,10 @@ function Question() {
   }
 
   const layoutCSS = {
-    height: '100vh',
+    height: '100%',
     display: 'flex',
-    borderRight: 'dotted',
-    border: '2px solid #ddd',
     backgroundColor:'#e9ecec',
-    overflow : 'hidden'
+    overflow : 'auto'
   };
 
   const setQuestionInfo = (info) =>{
@@ -133,7 +131,6 @@ const onRunHandle = () => {
 
 
   useEffect(()=>{
-
     const fetchData = async () => {
       setQuestionLoading(true);
 
@@ -174,6 +171,7 @@ const onRunHandle = () => {
   },[isUserLogin]);
 
   useEffect(() => {
+
     const handleResize = () => {
       setIsVerticalSplit(window.innerWidth <= 800);
     };
@@ -189,11 +187,10 @@ const onRunHandle = () => {
     <>
     <AlertMessage message={alertMessage} content='Try Re-Login And Refresh' setMessage={setAlertMessage}/>
     <Nav loginSignupSync={handleNavSync}/>
-    <div className="split-pane">
+    <div className="split-pane question">
       <SplitPane split={!isVerticalSplit ? 'vertical' : 'horizontal'} sizes={verticalSizes} onChange={setVerticalSizes}>
         <Pane minSize={50} maxSize="50%" style={
                                                 {
-                                                  overflow: 'auto',
                                                   backgroundColor: 'white',
                                                   ...(isVerticalSplit
                                                     ? { borderBottom: '4px solid #e0e0e0' }
@@ -201,13 +198,13 @@ const onRunHandle = () => {
                                                   )
                                                 }
                                               }>
-            <div style={{overflow:'auto'}}>
+            <div className='h-full'>
               <Tabs
                 defaultActiveKey="description"
                 id="uncontrolled-tab-example"
                 style={{"--bs-nav-link-color" : "#0000009c","--bs-nav-link-hover-color" : 'black'}}
               >
-                <Tab eventKey="description" title="Description">
+                <Tab eventKey="description" title="Description" className='h-full'>
                   {!questionLoading ? (<div style={{ ...layoutCSS }}>
                       <QuestionInfo questionInfo = {data.questionInfo}/>
                   </div>) : (
@@ -218,7 +215,7 @@ const onRunHandle = () => {
                   }
                 </Tab>
                 <Tab eventKey="comments" title="Comments">
-                  <div style={{border:'2px solid #e0e0e0', height:'98vh',overflow:'auto'}}>
+                  <div style={{overflow:'auto'}} className='h-full'>
                     <Comments questionName={questionName} isLogin={isUserLogin}/>
                   </div>
                 </Tab>
@@ -231,14 +228,14 @@ const onRunHandle = () => {
         <Pane className="right-panel">
           <SplitPane split="horizontal" sizes={horizontalSizes} onChange={setHorizontalSizes}>
             <Pane minSize={50} maxSize="90%" >
-              <div style={{height:'100%'}}>
+              <div className='h-full'>
                 <CodeEditor name="codehere-impl" language="java" initialData={code}
                 onUpdateData={handleUpdateCode} onRun={onRunHandle} onSubmit={onSubmitHandle} isUserLogin={isUserLogin}
                 setLanguage={setSelectedLanguage}/>
               </div>
             </Pane>
             <Pane minSize={50} maxSize="50%">
-            <div style={{ height : '100%', display:'flex'}}>
+            <div className='h-full flex'>
               <Result data={result} loading={loading} isRun={run} isSubmit={submit}/>
             </div>
             </Pane>

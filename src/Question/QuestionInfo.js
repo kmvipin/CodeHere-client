@@ -5,7 +5,7 @@ const QuestionInfo = (props) => {
   const { name, difficulty, topicTags, description, examples, constraints } = props.questionInfo;
 
   return (
-    <div className="question-details">
+    <div className="question-details h-full" >
       <h1 className="question-title" style={{ textAlign: 'left', fontSize: '24px', overflow : 'hidden' }}>
         {name}
       </h1>

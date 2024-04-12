@@ -35,7 +35,7 @@ const Result = (props) => {
   },[props.isSubmit,props.isRun])
 
   return (
-    <div style={{overflow:'auto', width:'100%', margin:'5px'}}>
+    <div style={{scrollbarWidth:'none'}} className="overflow-auto w-full m-1">
       <Tabs
         defaultActiveKey={defaultKey}
         id="uncontrolled-tab-example"
@@ -45,7 +45,7 @@ const Result = (props) => {
       >
           <Tab eventKey="result" title="Result" >
             {!loading && data && data.errorStack != null ? (
-              <div style={{padding:'10px',backgroundColor:'#ff00002b', borderRadius:'10px', height:'100%'}}>
+              <div className="p-2 bg-[#ff00002b] rounded-lg h-full">
                   {data.errorStack.map((value, index)=>(
                       <div key={index} className='error-list'>
                           <div>Message : {value.message}</div>
@@ -56,7 +56,7 @@ const Result = (props) => {
                   ))}
               </div>
             ) : !loading ?
-            (<div style={{display:'flex',justifyContent:'center', alignItems:'center', height:'30vh'}}>
+            (<div className="flex justify-center items-center h-[30vh]">
               {data && data.success ? (
               <div>
                 {isRun ? (<div className='congratulation-message'>
@@ -70,8 +70,7 @@ const Result = (props) => {
                   Solution Successfully Submitted
                 </div>) : <>Something Went Wrong</>}
               </div>) : 
-              (<div style={{ color: 'green', fontSize:'x-large', 
-              fontWeight:'bold'}}>
+              (<div className='text-green-700 text-2xl font-bold'>
                  Click Run or Submit to see Result
               </div>)}
             </div>)
