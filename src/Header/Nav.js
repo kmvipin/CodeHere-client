@@ -1,18 +1,15 @@
 import LoginSignup from '../loginSignup/LoginSignup';
 import './Nav.css';
 import { useNavigate } from 'react-router-dom';
-import { FaUser } from 'react-icons/fa';
 import { doLogout, isLogin } from '../auth';
 import { logOut } from '../services/person-service';
 import AlertMessage from '../components/AlertMessage';
-import { Link } from 'react-router-dom';
 import { Button } from 'react-bootstrap';
 
 import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faSearch, faBars} from '@fortawesome/free-solid-svg-icons';
 import { faGoogle,faLinkedin, faGithub  } from '@fortawesome/free-brands-svg-icons'
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import logo from '../assets/images/codehere-logo.png';
 
 function CollapsibleExample(props) {

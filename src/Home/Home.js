@@ -17,19 +17,15 @@ const Home = () =>{
   const [alertMessage, setAlertMessage] = useState();
   const navigate = useNavigate();
 
-  const handleSubmitForm = (message,setFieldNull) =>{
+  const handleSubmitForm = (message) =>{
     try{
         saveMessage(message)
-        .then((res)=>{
-          toast.success("Message Sent Successfully");
-          setFieldNull();
-        })
         .catch(err=>{
-          setAlertMessage("Something Went Wrong");
+          
         })
     }
     catch(err){
-      setAlertMessage("Something Went Wrong");
+      console.error("Something Went Wrong");
     }
   }
   const handleNavigateQuestionList=(easy,medium,hard)=>{
@@ -86,7 +82,7 @@ const Home = () =>{
       <Nav isFixed={true}/>
       <AlertMessage message={alertMessage} content="Check yout internet connection or try again" setMessage={setAlertMessage}/>
       <Header handleNavigateQuestionList={handleNavigateQuestionList}/>
-      <hr className="mx-5"></hr>
+      <hr className="mx-5"/>
       <div className='bottom-container'>
       <section id="features" className="section w-full py-12">
           <div className="container grid items-center justify-center gap-4 px-4 text-center md:gap-10 md:px-6">
@@ -104,24 +100,8 @@ const Home = () =>{
           {/* Add more CategoryCard components for additional categories */}
         </div>
       </section>
-      <hr className="mx-5"></hr>
-      <Container id="about" className="about-section">
-        <Row>
-          <Col>
-            <Card>
-              <Card.Body>
-                <h2 className="section-title" style={{marginTop:'10px'}}>About Us</h2>
-                <p>
-                  We are passionate about providing you with exciting challenges that help you learn and grow. 
-                  Join our community and embark on a journey of self-improvement and fun.
-                </p>
-              </Card.Body>
-            </Card>
-          </Col>
-        </Row>
-      </Container>
+      <hr className="mx-5"/>
       <section id="contact" className="contact-section">
-        <h2 className="section-title">Contact Us</h2>
         <ContactForm handleSubmitForm={handleSubmitForm}/>
         {/* Add additional contact information if needed */}
       </section>

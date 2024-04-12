@@ -140,7 +140,6 @@ const QuestionList = () => {
               handlePageChange={handlePageChange}
           />
         </div>
-        <Footer/>
     </div>
     </div>
   );

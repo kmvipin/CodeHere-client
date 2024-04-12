@@ -2,9 +2,7 @@
 .contact-form-container {
     padding: 20px;
     background-color: #fefefeef;
-    border-radius: 5px;
-    box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.1);
-    border: 1px solid rgba(0, 0, 0, 0.175);
+    /* border: 1px solid rgba(74, 72, 72, 0.175); */
   }
   
   .form-group {
