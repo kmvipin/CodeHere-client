@@ -76,7 +76,7 @@ function ContactForm(props) {
       <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8 lg:py-20">
         <div className="mb-4">
           <div className="mb-5 max-w-3xl text-center sm:text-center md:mx-auto">
-            <h2 className="font-heading mb-4 font-bold tracking-tight text-gray-900 dark:text-white text-3xl sm:text-5xl">
+            <h2 className="font-heading mb-4 font-bold tracking-tight text-gray-900 text-3xl sm:text-5xl">
               Get in Touch
             </h2>
           </div>
@@ -104,7 +104,7 @@ function ContactForm(props) {
                     </svg>
                   </div>
                   <div className="ml-4 mb-4">
-                    <h3 className="mb-2 text-lg font-medium leading-6 text-gray-900 dark:text-white">
+                    <h3 className="mb-2 text-lg font-medium leading-6 text-gray-900">
                       Our Social
                     </h3>
                     <div className="flex justify-between mt-2">
@@ -155,14 +155,14 @@ function ContactForm(props) {
                     <h3 className="mb-2 text-lg font-medium leading-6 text-gray-900">
                       Contact
                     </h3>
-                    <div className="text-gray-600 dark:text-slate-400 flex mb-4 sm:flex-row flex-col">
+                    <div className="text-gray-600 flex mb-4 sm:flex-row flex-col">
                       <div className="w-14">Mobile:</div>
                       <div className="flex-col ml-1">
                         <div>+91 9310139949</div>
                         <div>+91 9868956310</div>
                       </div>
                     </div>
-                    <div className="text-gray-600 dark:text-slate-400 flex sm:flex-row flex-col">
+                    <div className="text-gray-600 flex sm:flex-row flex-col">
                       <div className="w-14">Mail:</div>
                       <div className="flex-col ml-1">
                         <div>vk783838@gmail.com</div>
@@ -190,13 +190,13 @@ function ContactForm(props) {
                     </svg>
                   </div>
                   <div className="ml-4 mb-4">
-                    <h3 className="mb-2 text-lg font-medium leading-6 text-gray-900 dark:text-white">
+                    <h3 className="mb-2 text-lg font-medium leading-6 text-gray-900">
                       Working hours
                     </h3>
-                    <p className="text-gray-600 dark:text-slate-400">
+                    <p className="text-gray-600">
                       Monday - Friday: 08:00 - 17:00
                     </p>
-                    <p className="text-gray-600 dark:text-slate-400">
+                    <p className="text-gray-600">
                       Saturday &amp; Sunday: 08:00 - 12:00
                     </p>
                   </div>
