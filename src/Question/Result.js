@@ -35,7 +35,7 @@ const Result = (props) => {
   },[props.isSubmit,props.isRun])
 
   return (
-    <div style={{scrollbarWidth:'none'}} className="overflow-auto w-full m-1">
+    <div style={{scrollbarWidth:'none'}} className="overflow-auto m-1 w-[98%]">
       <Tabs
         defaultActiveKey={defaultKey}
         id="uncontrolled-tab-example"

@@ -48,7 +48,7 @@ const CodeEditor = (props) => {
                 setData(value);
             }}
         />
-        <div className="flex justify-end items-end mt-3 absolute bottom-5 right-3 max-w-7 max-h-7 gap-2">
+        <div className="flex justify-end items-end mt-3 absolute bottom-5 right-4 max-w-7 max-h-7 gap-2 md:bottom-3">
           <OverlayTrigger overlay={!isUserLogin ? <Tooltip id="tooltip-disabled">Login Before Run</Tooltip> : <></>}>
             <span className="d-inline-block">
                 <Button variant="danger" onClick={onRun} disabled={!isUserLogin}>Run</Button>

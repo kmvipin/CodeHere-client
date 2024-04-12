@@ -4,7 +4,7 @@ const Output = (props) => {
 
     const {data} = props;
   return (
-    <div className='output-container'>
+    <div className='output-container w-[98%]'>
         <div style={{display:'flex', justifyContent:'space-between'}}>
             <div className='wrong-output'>Wrong Output</div>
             <div className='testcase-number'>

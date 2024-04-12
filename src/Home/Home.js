@@ -106,7 +106,9 @@ const Home = () =>{
         {/* Add additional contact information if needed */}
       </section>
       </div>
-    <Footer/>
+      <div className="md:block hidden">
+      <Footer/>
+      </div>
     </div>
   );
   

@@ -230,7 +230,7 @@ const onRunHandle = () => {
                 onUpdateData={handleUpdateCode} onRun={onRunHandle} onSubmit={onSubmitHandle} isUserLogin={isUserLogin}
                 setLanguage={setSelectedLanguage}/>
             </Pane>
-            <Pane minSize={50} maxSize="50%" >
+            <Pane minSize={50} maxSize="50%" style={{overflowY:'auto'}}>
               <Result data={result} loading={loading} isRun={run} isSubmit={submit}/>
             </Pane>
           </SplitPane>

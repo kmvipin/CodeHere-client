@@ -16,9 +16,9 @@ const Header = (props) => {
   },[blink]);
 
   return (
-    <div className="flex flex-col min-h-screen">
+    <div className="flex flex-col md:min-h-[calc(100vh-55px)] min-h-[88vh]">
       <main className="flex-1">
-        <section className="w-full pt-28">
+        <section className="w-full pt-20">
           <div className="container flex flex-col items-center justify-center gap-4 px-4 text-center md:gap-10 md:px-6">
             <div className="space-y-3">
               <div className="flex justify-center">
