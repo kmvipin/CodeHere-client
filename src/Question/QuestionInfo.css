@@ -6,12 +6,9 @@ h1{
 }
 .question-details {
     background-color: #f8f9fa;
-    padding: 20px;
-    border-radius: 5px;
     width: 100%;
     overflow-y: auto;
     overflow-x: 'hidden';
-    padding-bottom: 50px;
   }
   
   .question-title {
@@ -67,7 +64,6 @@ h1{
     border: 1px solid #ddd;
     padding: 20px;
     margin: 20px 0;
-    border-radius: 5px;
     background-color: #f2f2f2;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   }
@@ -83,14 +79,12 @@ h1{
 .difficulty-and-tags {
     display: flex;
     flex-direction: row; /* Set the direction to row for a horizontal layout */
-    justify-content: space-between; /* Space evenly between the elements */
     overflow-x : 'hidden'
   }
   
   .detail {
     border: 1px solid #ddd;
     padding: 10px;
-    border-radius: 5px;
     background-color: #f8f9fa;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     margin: 5px;

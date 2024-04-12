@@ -42,12 +42,13 @@ const CodeEditor = (props) => {
             width='100%'
             height='100%'
             className="form-control"
+            wrapEnabled
             fontSize={15}px
             onChange={(value) => {
                 setData(value);
             }}
         />
-        <div className="editor-buttons">
+        <div className="flex justify-end items-end mt-3 absolute bottom-5 right-3 max-w-7 max-h-7 gap-2">
           <OverlayTrigger overlay={!isUserLogin ? <Tooltip id="tooltip-disabled">Login Before Run</Tooltip> : <></>}>
             <span className="d-inline-block">
                 <Button variant="danger" onClick={onRun} disabled={!isUserLogin}>Run</Button>

@@ -5,14 +5,14 @@ const QuestionInfo = (props) => {
   const { name, difficulty, topicTags, description, examples, constraints } = props.questionInfo;
 
   return (
-    <div className="question-details h-full" >
+    <div className="question-details h-[calc(100%-2.5rem)] md:h-[calc(100%-3rem)] pb-4 pl-4 pr-2 whitespace-pre-wrap">
       <h1 className="question-title" style={{ textAlign: 'left', fontSize: '24px', overflow : 'hidden' }}>
         {name}
       </h1>
       <div className="details">
-        <div className="difficulty-and-tags">
+        <div className="difficulty-and-tags flex flex-wrap sm:flex-nowrap text-center justify-center">
           <div
-            className="detail border border-[#ddd] flex flex-wrap overflow-hidden p-2 rounded bg-[#f8f9fa] m-1 w-[48%]"
+            className="detail border border-[#ddd] flex flex-wrap overflow-hidden p-2 bg-[#f8f9fa]  w-[48%] justify-center items-center"
             style={{
               boxShadow: '0 2px 4px rgba(0, 0, 0, 0.1)',
             }}
@@ -36,7 +36,7 @@ const QuestionInfo = (props) => {
           </div>
           </div>
           <div
-            className="detail border border-[#ddd] p-2 rounded bg-[#f8f9fa] m-1 w-[48%] overflow-x-hidden"
+            className="detail border border-[#ddd] p-2 bg-[#f8f9fa] m-1 w-[48%] overflow-x-hidden"
             style={{
               boxShadow: '0 2px 4px rgba(0, 0, 0, 0.1)',
             }}
@@ -49,7 +49,7 @@ const QuestionInfo = (props) => {
         </div>
         <div style={{marginTop:"10px"}}>
           <strong>Description: </strong> 
-          <span style={{ whiteSpace: 'pre-line' }}><div dangerouslySetInnerHTML={{ __html: description }}/></span>
+          <span><div dangerouslySetInnerHTML={{ __html: description }}/></span>
         </div>
       </div>
       {examples && (

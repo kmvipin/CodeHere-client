@@ -201,8 +201,9 @@ const onRunHandle = () => {
                 defaultActiveKey="description"
                 id="uncontrolled-tab-example"
                 style={{"--bs-nav-link-color" : "#0000009c","--bs-nav-link-hover-color" : 'black'}}
+                className="h-10 md:h-12"
               >
-                <Tab eventKey="description" title="Description" className='h-full'>
+                <Tab eventKey="description" title="Description" className='h-full text-sm md:text-base'>
                   {!questionLoading ? (<div style={{ ...layoutCSS }}>
                       <QuestionInfo questionInfo = {data.questionInfo}/>
                   </div>) : (
