@@ -7,3 +7,6 @@ body {
     --bs-btn-close-focus-shadow:none;
 }
 
+.overflow-wrap-anywhere{
+    overflow-wrap: anywhere;
+}

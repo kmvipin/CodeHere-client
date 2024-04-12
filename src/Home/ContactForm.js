@@ -1,38 +1,62 @@
 import React, { useState } from "react";
-import { Container, Form, Button } from "react-bootstrap";
 import "./ContactForm.css"; // Import your CSS file
 import { sendForm } from "@emailjs/browser";
 import { useRef } from "react";
+import validator from "validator";
 import {
-  faFacebook,
   faGoogle,
   faLinkedin,
   faTwitter,
 } from "@fortawesome/free-brands-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { toast } from "react-toastify";
+import { EMAILJS_PUBLIC_KEY, EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID } from "../services/helper";
 
 function ContactForm(props) {
   const { handleSubmitForm } = props;
-  // Define state variables for form fields
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");
-
-  // Function to handle form submission
+  const [messageInProgress, setMessageInProgress] = useState(false);
   const form = useRef();
+
   const handleSubmit = (e) => {
+    if(messageInProgress){
+      return;
+    }
     e.preventDefault();
-      sendForm('service_kyblgff', 'template_4lbstya', form.current, {
-        publicKey: 'aIiAI1MqIhLWQ-TV0',
+    setMessageInProgress(true);
+    try{
+      if(name.length < 2){
+        throw Error("Name length at least 2");
+      }
+      else if(!validator.matches(name,/^[a-zA-Z]+$/)){
+        throw Error("Name only contains alphabets");
+      }
+      else if(!validator.isEmail(email)){
+        throw Error("Must be an email");
+      }
+      else if(message.length < 5){
+        throw Error("Message length at least 5");
+      }
+    }
+    catch(err){
+      alert(err.message);
+      setMessageInProgress(false);
+      return;
+    }
+      sendForm(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, form.current, {
+        publicKey: EMAILJS_PUBLIC_KEY,
       })
       .then(
         () => {
           toast.success("Message Sent Successfully");
+          setMessageInProgress(false);
           setFieldNull();
         },
         (error) => {
           toast.error("Something Went Wrong");
+          setMessageInProgress(false);
         },
       );
     handleSubmitForm(
@@ -59,10 +83,10 @@ function ContactForm(props) {
         </div>
         <div className="flex items-stretch justify-center">
           <div className="grid md:grid-cols-2 w-full">
-            <div className="h-full pr-6 md:pt-10 md:pl-5">
-              <ul className="mb-6 md:mb-0">
+            <div className="h-full pr-6 md:pt-10 md:pl-5 overflow-wrap-anywhere">
+              <ul className="mb-6 md:mb-0 sm:pl-5 pl-0">
                 <li className="flex mb-4">
-                  <div className="flex h-10 w-10 items-center justify-center rounded bg-blue-900 text-gray-50">
+                  <div className="flex md:h-10 h-8 md:min-w-10 items-center justify-center rounded bg-blue-900 text-gray-50 min-w-8">
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
                       width="24"
@@ -109,7 +133,7 @@ function ContactForm(props) {
                   </div>
                 </li>
                 <li className="flex">
-                  <div className="flex h-10 w-10 items-center justify-center rounded bg-blue-900 text-gray-50">
+                  <div className="flex md:h-10 h-8 md:min-w-10 items-center justify-center rounded bg-blue-900 text-gray-50 min-w-8">
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
                       width="24"
@@ -131,24 +155,24 @@ function ContactForm(props) {
                     <h3 className="mb-2 text-lg font-medium leading-6 text-gray-900">
                       Contact
                     </h3>
-                    <p className="text-gray-600 dark:text-slate-400 flex">
+                    <div className="text-gray-600 dark:text-slate-400 flex mb-4 sm:flex-row flex-col">
                       <div className="w-14">Mobile:</div>
                       <div className="flex-col ml-1">
                         <div>+91 9310139949</div>
                         <div>+91 9868956310</div>
                       </div>
-                    </p>
-                    <p className="text-gray-600 dark:text-slate-400 flex">
+                    </div>
+                    <div className="text-gray-600 dark:text-slate-400 flex sm:flex-row flex-col">
                       <div className="w-14">Mail:</div>
                       <div className="flex-col ml-1">
                         <div>vk783838@gmail.com</div>
                         <div>khohalsumit@gmail.com</div>
                       </div>
-                    </p>
+                    </div>
                   </div>
                 </li>
                 <li className="flex">
-                  <div className="flex h-10 w-10 items-center justify-center rounded bg-blue-900 text-gray-50">
+                  <div className="flex md:h-10 h-8 md:min-w-10 items-center justify-center rounded bg-blue-900 text-gray-50 min-w-8">
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
                       width="24"
@@ -179,7 +203,7 @@ function ContactForm(props) {
                 </li>
               </ul>
             </div>
-            <div className=" h-fit max-w-6xl p-5 md:p-12" id="form">
+            <div className=" h-fit max-w-6xl p-0 md:p-12" id="form">
               <h2 className="mb-2 text-base font-semibold">
                 Have you any query?
               </h2>
@@ -241,7 +265,7 @@ function ContactForm(props) {
                     type="submit"
                     className="w-full bg-blue-800 text-white px-6 py-3 font-xl rounded-md sm:mb-0"
                   >
-                    Send Message
+                    {messageInProgress ? <>Sending...</> : <>Send Message</>}
                   </button>
                 </div>
               </form>
