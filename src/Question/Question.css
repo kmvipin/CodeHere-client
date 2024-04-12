@@ -10,15 +10,6 @@
     width: 40%;
     overflow: hidden; /* Prevent content overflow */
   }
-  
-  .right-panel {
-    display: flex;
-    flex-direction: column;
-    overflow: auto;
-    flex: 1;
-    height: 100%;
-  }
-  
 
 /* Style for the vertical split */
 .react-split-pane.split-pane {
@@ -59,14 +50,6 @@
   border-radius: 0.5rem;
 }
 
-.question{
-  height: calc(100vh - 60px);
-}
-
 .tab-content{
   height: 100% !important;
-}
-
-.react-split__pane{
-  height: inherit;
 }

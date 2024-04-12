@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import SplitPane, { Pane } from 'split-pane-react';
 import 'split-pane-react/esm/themes/default.css'
 import { useState } from 'react';
-import './Question.css'; // Import your custom CSS if needed
+import './Question.css';
 import CodeEditor from './CodeEditor';
 import Nav from '../Header/Nav';
 import QuestionInfo from './QuestionInfo';
@@ -23,8 +23,8 @@ function Question() {
   const query = new URLSearchParams(location.search);
 
   const questionName = query.get('name');;
-  const [verticalSizes, setVerticalSizes] = useState([300, '30%', 'auto']);
-  const [horizontalSizes, setHorizontalSizes] = useState([700, '50%', 'auto']);
+  const [verticalSizes, setVerticalSizes] = useState(["40%", 'auto']);
+  const [horizontalSizes, setHorizontalSizes] = useState(["60%", 'auto']);
   const [code, setCode] = useState('');
   const [data,setData] = useState();
   const [result,setResult] = useState();
@@ -187,18 +187,16 @@ const onRunHandle = () => {
     <>
     <AlertMessage message={alertMessage} content='Try Re-Login And Refresh' setMessage={setAlertMessage}/>
     <Nav loginSignupSync={handleNavSync}/>
-    <div className="split-pane question">
+    <div className="split-pane question h-[150vh] md:h-[calc(100vh-60px)]">
       <SplitPane split={!isVerticalSplit ? 'vertical' : 'horizontal'} sizes={verticalSizes} onChange={setVerticalSizes}>
         <Pane minSize={50} maxSize="50%" style={
                                                 {
-                                                  backgroundColor: 'white',
                                                   ...(isVerticalSplit
                                                     ? { borderBottom: '4px solid #e0e0e0' }
                                                     : { borderRight: '4px solid #e0e0e0' }
                                                   )
                                                 }
-                                              }>
-            <div className='h-full'>
+                                              } className='bg-white'>
               <Tabs
                 defaultActiveKey="description"
                 id="uncontrolled-tab-example"
@@ -223,21 +221,16 @@ const onRunHandle = () => {
                   
                 </Tab>
             </Tabs>
-          </div>
         </Pane>
-        <Pane className="right-panel">
+        <Pane>
           <SplitPane split="horizontal" sizes={horizontalSizes} onChange={setHorizontalSizes}>
-            <Pane minSize={50} maxSize="90%" >
-              <div className='h-full'>
+            <Pane minSize="50%" maxSize="90%">
                 <CodeEditor name="codehere-impl" language="java" initialData={code}
                 onUpdateData={handleUpdateCode} onRun={onRunHandle} onSubmit={onSubmitHandle} isUserLogin={isUserLogin}
                 setLanguage={setSelectedLanguage}/>
-              </div>
             </Pane>
-            <Pane minSize={50} maxSize="50%">
-            <div className='h-full flex'>
+            <Pane minSize={50} maxSize="50%" >
               <Result data={result} loading={loading} isRun={run} isSubmit={submit}/>
-            </div>
             </Pane>
           </SplitPane>
         </Pane>

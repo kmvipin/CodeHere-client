@@ -12,20 +12,12 @@ const QuestionInfo = (props) => {
       <div className="details">
         <div className="difficulty-and-tags">
           <div
-            className="detail"
+            className="detail border border-[#ddd] flex flex-wrap overflow-hidden p-2 rounded bg-[#f8f9fa] m-1 w-[48%]"
             style={{
-              border: '1px solid #ddd',
-              display:'flex',
-              overflow : 'hidden',
-              padding: '10px',
-              borderRadius: '5px',
-              backgroundColor: '#f8f9fa',
               boxShadow: '0 2px 4px rgba(0, 0, 0, 0.1)',
-              margin: '5px',
-              width: '48%', // Adjust the width as needed
             }}
           >
-            <strong style={{ fontWeight: 'bold', color: '#333' }}>
+            <strong className="font-bold text-[#333]">
               Difficulty:
             </strong>
             <div
@@ -44,16 +36,9 @@ const QuestionInfo = (props) => {
           </div>
           </div>
           <div
-            className="detail"
+            className="detail border border-[#ddd] p-2 rounded bg-[#f8f9fa] m-1 w-[48%] overflow-x-hidden"
             style={{
-              border: '1px solid #ddd',
-              padding: '10px',
-              borderRadius: '5px',
-              backgroundColor: '#f8f9fa',
               boxShadow: '0 2px 4px rgba(0, 0, 0, 0.1)',
-              margin: '5px',
-              width: '48%', // Adjust the width as needed
-              overflowX : 'hidden'
             }}
           >
             <strong style={{ fontWeight: 'bold', color: '#333' }}>
