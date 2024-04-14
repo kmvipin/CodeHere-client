@@ -10,6 +10,7 @@ import { toast } from 'react-toastify';
 import { useNavigate, useParams } from 'react-router-dom';
 import { getPublicProfileInfo } from '../services/public-service';
 import AvatarList from '../components/AvatarList';
+import Loading from '../components/Loading';
 
 function ProfilePage() {
     const user = useParams().user;
@@ -376,8 +377,8 @@ else{
     <div>
       <AlertMessage message={alertMessage} content={defaultAlertContent} setMessage={setAlertMessage}/>
       <Nav isProfilePage={true}/>
-          Loading...
-      </div>
+      <Loading content={"Loading..."}/>
+    </div>
   )
 }
 }

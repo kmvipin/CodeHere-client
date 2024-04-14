@@ -130,8 +130,9 @@ const QuestionList = () => {
                 ))}
             </tbody>}
           </Table>
-          {loading && <div style={{display:'flex', justifyContent:'center', alignItems :'center'}}>
-                  <ReactLoading type={'bubbles'} color={'grey'} height={40} width={80}/>
+          {loading && <div className='flex justify-center items-center pt-12'>
+            <span className="text-lg pb-2 mr-1">Loading</span>
+                  <ReactLoading type={'cubes'} color={'grey'} height={25} width={20}/>
               </div>}
         </Container>
           <DynamicPagination

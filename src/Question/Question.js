@@ -208,7 +208,7 @@ const onRunHandle = () => {
                       <QuestionInfo questionInfo = {data.questionInfo}/>
                   </div>) : (
                     <div style={{display:'flex', justifyContent:'center', alignItems :'center',height:'85vh'}}>
-                        <ReactLoading type={'bubbles'} color={'grey'} height={80} width={80} />
+                        <ReactLoading type={'bars'} color={'grey'} height={30} width={40} />
                     </div>
                   )
                   }
