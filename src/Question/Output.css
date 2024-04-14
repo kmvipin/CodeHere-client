@@ -14,10 +14,10 @@
     background-color: #000a2008;
     display: flex;
     align-items: center;
-    padding-left: 10px;
     border-color: #e2e8f0;
     width: 100%;
     overflow: auto;
+    padding: 10px;
 }
 
 .wrong-output{
@@ -30,6 +30,7 @@
     background-color:#000a2008; 
     margin-top:10px;
     border-radius: 8px;
-    padding: 5px 5px 0px 5px;
+    padding: 5px 5px 5px 5px;
     margin-right: 1rem;
+    height: fit-content;
 }
