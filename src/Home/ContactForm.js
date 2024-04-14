@@ -4,6 +4,7 @@ import { sendForm } from "@emailjs/browser";
 import { useRef } from "react";
 import validator from "validator";
 import {
+  faGithub,
   faGoogle,
   faLinkedin,
   faLinkedinIn,
@@ -108,7 +109,7 @@ function ContactForm(props) {
                     <h3 className="mb-2 text-lg font-medium leading-6 text-gray-900">
                       Our Social
                     </h3>
-                    <div className="flex justify-between mt-2 gap-4">
+                    <div className="flex justify-between mt-2 gap-4 flex-wrap">
                       <a href="https://www.linkedin.com/in/vipin-886bab25a/" target="_blank">
                         <FontAwesomeIcon
                           icon={faLinkedin}
@@ -133,6 +134,13 @@ function ContactForm(props) {
                       <a href="https://x.com/sumitkhohal?t=hinVbngOQFTYTtKKXHtIYQ&s=08" target="_blank">
                         <FontAwesomeIcon
                           icon={faTwitter}
+                          size="lg"
+                          className="hover:cursor-pointer"
+                        />
+                      </a>
+                      <a href="https://github.com/kmvipin" target="_blank">
+                        <FontAwesomeIcon
+                          icon={faGithub}
                           size="lg"
                           className="hover:cursor-pointer"
                         />
@@ -163,14 +171,7 @@ function ContactForm(props) {
                     <h3 className="mb-2 text-lg font-medium leading-6 text-gray-900">
                       Contact
                     </h3>
-                    <div className="text-gray-600 flex mb-4 sm:flex-row flex-col">
-                      <div className="w-14">Mobile:</div>
-                      <div className="flex-col ml-1">
-                        <div>+91 9310139949</div>
-                        <div>+91 9868956310</div>
-                      </div>
-                    </div>
-                    <div className="text-gray-600 flex sm:flex-row flex-col">
+                    <div className="text-gray-600 flex flex-wrap">
                       <div className="w-14">Mail:</div>
                       <div className="flex-col ml-1">
                         <div>vk783838@gmail.com</div>

@@ -1,3 +1,5 @@
+import { Cookies } from "react-cookie-consent";
+
 export const doLogin=(props)=>{
     const {token,next} = props;
     localStorage.setItem('auth_token',token);
@@ -11,6 +13,7 @@ export const isLogin=()=>{
 export const doLogout=()=>{
     localStorage.removeItem('auth_token');
     localStorage.removeItem("user");
+    Cookies.remove("CookieConsent");
 };
 
 export const getToken = ()=>{

@@ -3,18 +3,21 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import CategoryCard from '../Home/CategoryCard';
 import './Home.css';
 import ContactForm from './ContactForm';
-import { Container, Row, Col, Card } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Footer from '../Footer/Footer';
 import { useNavigate } from 'react-router-dom';
 import { saveMessage } from '../services/public-service';
 import { toast } from 'react-toastify';
 import AlertMessage from '../components/AlertMessage';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import Header from '../Header/Header';
+import CookieConsent from 'react-cookie-consent';
+import { Cookies } from 'react-cookie-consent';
 
 const Home = () =>{
   const [alertMessage, setAlertMessage] = useState();
+  const [showCookieConsent,setShowCookieConsent] = useState(false);
+  const hostname = window.location.hostname;
   const navigate = useNavigate();
 
   const handleSubmitForm = (message) =>{
@@ -75,12 +78,26 @@ const Home = () =>{
     description : "Questions are hard",
     quantity : 1,
   }
-  // Import testimonial components, content, and other necessary components
+
+  useEffect(()=>{
+    if(!Cookies.get('CookieConsent')){
+      setShowCookieConsent(true);
+    }
+  },[])
 
   return (
     <div className='app'>
       <Nav isFixed={true}/>
       <AlertMessage message={alertMessage} content="Check yout internet connection or try again" setMessage={setAlertMessage}/>
+      {showCookieConsent && <CookieConsent
+        debug={true}
+        extraCookieOptions={{ domain: hostname }}
+        style={{ background: "#f1f2f1", color: "black" }}
+        buttonStyle={{ backgroundColor:'#0c3059',color: "white", fontSize: "13px" }}
+        buttonText="OKAY!"
+      >
+        Enable Third Party Cookies to Authenticate
+      </CookieConsent>}
       <Header handleNavigateQuestionList={handleNavigateQuestionList}/>
       <hr className="mx-5"/>
       <div className='bottom-container'>

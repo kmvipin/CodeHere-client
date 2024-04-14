@@ -59,15 +59,6 @@ function CollapsibleExample(props) {
             </a>
           </nav>
           <div className="flex items-center space-x-4">
-            <a href="mailto:vk783838@gmail.com" className="text-black">
-              <FontAwesomeIcon icon={faGoogle} />
-            </a>
-            <a href="https://www.linkedin.com/in/vipin-886bab25a/" className="text-black" target='_blank'>
-              <FontAwesomeIcon icon={faLinkedin}/>
-            </a>
-            <a href="https://github.com/kmvipin" className="text-black" target="_blank">
-              <FontAwesomeIcon icon={faGithub}/>
-            </a>
             {isNavLogin && !isProfilePage ? (<Button size="sm" variant="outline-dark" onClick={()=>{navigate('/profile/my-profile')}}>
               Profile
             </Button>) :

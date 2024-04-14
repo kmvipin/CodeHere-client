@@ -17,9 +17,9 @@ const Login = ({ setLoginPage, isLoginPage, handleLogin, loginError, nextPageSta
 
   return (
     <div className="flex items-center justify-center min-h-[calc(100vh-60px)] w-full sm:px-5 px-3">
-      <div className="flex bg-white overflow-hidden max-w-sm lg:max-w-5xl w-full">
+      <div className="flex bg-white overflow-hidden max-w-sm lg:max-w-5xl w-full mb-4">
         <div
-          className="hidden md:block lg:w-1/2 bg-cover"
+          className="hidden md:block lg:w-1/2 bg-cover mt-[-20px]"
           style={{
             backgroundImage: `url(https://img.freepik.com/premium-vector/sign-page-illustration-design-template_559664-157.jpg?w=740)`,
           }}
@@ -28,6 +28,8 @@ const Login = ({ setLoginPage, isLoginPage, handleLogin, loginError, nextPageSta
           <LoginRegisterToggle
             isLoginPage={isLoginPage}
             setLoginPage={setLoginPage}
+            linkName="Register"
+            paragraph="Don't Have Register Yet?"
           />
           <CustomError message={loginError} />
           <div className="mt-4">
@@ -82,22 +84,6 @@ const Login = ({ setLoginPage, isLoginPage, handleLogin, loginError, nextPageSta
             href="#"
             className=" flex items-center justify-center mt-4 text-white rounded-lg shadow-md hover:bg-gray-100"
           ></a>
-          <div className="mt-4 flex items-center w-full text-center">
-            <a
-              href="#"
-              className="text-xs text-gray-500 capitalize text-center w-full"
-            >
-              Don&apos;t have any account yet?
-              <span
-                className="text-blue-700"
-                onClick={() => {
-                  setLoginPage(false);
-                }}
-              >
-                Sign Up
-              </span>
-            </a>
-          </div>
         </div>
       </div>
     </div>

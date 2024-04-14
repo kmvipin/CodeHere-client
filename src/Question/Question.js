@@ -213,8 +213,8 @@ const onRunHandle = () => {
                   )
                   }
                 </Tab>
-                <Tab eventKey="comments" title="Comments">
-                  <div style={{overflow:'auto'}} className='h-full'>
+                <Tab eventKey="comments" title="Comments" className="overflow-auto">
+                  <div className='h-full overflow-auto'>
                     <Comments questionName={questionName} isLogin={isUserLogin}/>
                   </div>
                 </Tab>
