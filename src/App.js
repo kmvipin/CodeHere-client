@@ -12,6 +12,7 @@ import AddTestCases from './admin/AddTestCases'
 import DashBoard from './admin/DashBoard';
 import PageNotFound from './components/PageNotFound'
 import AdminQuestionList from './admin/AdminQuestionList'
+import Authentication from './Authentication/Authentication'
 
 const App = () => {
   return (
@@ -21,6 +22,7 @@ const App = () => {
         <Route path='/profile/:user' element={<ProfilePage/>}/>
         <Route path="/question" element={ <Question/> } />
         <Route path="/pnf" element={<PageNotFound/>} />
+        <Route path="/login" element={<Authentication/>}/>
         <Route path="/admin2023" element={<PrivatePages />}>
             <Route path="" element={<DashBoard/>} />
             <Route path="add-question" element={<AddQuestion/>}/>

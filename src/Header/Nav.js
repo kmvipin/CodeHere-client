@@ -1,4 +1,3 @@
-import LoginSignup from '../loginSignup/LoginSignup';
 import './Nav.css';
 import { useNavigate } from 'react-router-dom';
 import { doLogout, isLogin } from '../auth';
@@ -14,15 +13,11 @@ import logo from '../assets/images/codehere-logo.png';
 
 function CollapsibleExample(props) {
   const navigate = useNavigate();
-  const {loginForm, loginSignupSync,isProfilePage} = props;
-  const [loginSignup,setLoginSignup] = useState(false);
+  const {isProfilePage} = props;
   const [isNavLogin,setIsNavLogin] = useState(isLogin());
   const [alertMessage, setAlertMessage] = useState();
 
   const handleLogout = () =>{
-    if(loginSignupSync){
-      loginSignupSync();
-    }
     try{
         logOut()
         .then(data=>{
@@ -41,24 +36,10 @@ function CollapsibleExample(props) {
     }
   }
 
-  const handleAfterLogin = (flag) =>{
-    if(loginSignupSync){
-      loginSignupSync();
-    }
-    setIsNavLogin(flag);
-  }
-  useState(()=>{
-    if(loginForm){
-      setLoginSignup(true);
-    }
-  });
-
   return (
     <div>
       <AlertMessage message={alertMessage} content={"Try Again!!"} setMessage={setAlertMessage}/>
-      <LoginSignup showForm={loginSignup} setShowForm={setLoginSignup} 
-      callBackAfterSuccess={handleAfterLogin}/>
-      <header className="flex-initial w-full py-4 border-t bg-gray-100 h-[55px]">
+      <header className="flex-initial w-full py-4 border-t h-[55px]">
         <div className="container flex items-center justify-between px-4 md:px-6">
           <div className="flex items-center space-x-2 cursor-pointer" onClick={()=>{navigate('/')}}>
               <img src={logo} className="bg-transparent h-[35px] w-auto"/>
@@ -90,7 +71,7 @@ function CollapsibleExample(props) {
             {isNavLogin && !isProfilePage ? (<Button size="sm" variant="outline-dark" onClick={()=>{navigate('/profile/my-profile')}}>
               Profile
             </Button>) :
-            !isProfilePage && <Button size="sm" variant="outline-dark" onClick={()=>{setLoginSignup(true)}}>
+            !isProfilePage && <Button size="sm" variant="outline-dark" onClick={()=>{navigate('/login')}}>
               Log In
           </Button>}
           {isProfilePage && <Button size="sm" variant="outline-dark" onClick={()=>{handleLogout()}}>

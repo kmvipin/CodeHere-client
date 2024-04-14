@@ -7,9 +7,9 @@ export const userLogin = async (authCredential)=>{
     return response.data;
 }
 
-export const userSignup = async (person) =>{
+export const userSignup = async (person,otp) =>{
     const response = await myAxios.post(
-        `/api/public/save/user`, person
+        `/api/public/save/user?otp=${otp}`, person
     );
     return response.data;
 }
@@ -38,6 +38,15 @@ export const saveMessage=async (message)=>{
 export const getPublicProfileInfo=async (userName)=>{
     try {
         const res = await myAxios.get(`/api/public/user-profile/info/${userName}`);
+        return res.data;
+    } catch (err) {
+        throw err;
+    }
+}
+
+export const getEmailOrUsernameStatus=async (email,username)=>{
+    try {
+        const res = await myAxios.get(`/api/public/verify/user-status?username=${username}&&email=${email}`);
         return res.data;
     } catch (err) {
         throw err;

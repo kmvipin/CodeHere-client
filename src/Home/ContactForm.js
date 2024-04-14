@@ -203,7 +203,7 @@ function ContactForm(props) {
                 </li>
               </ul>
             </div>
-            <div className=" h-fit max-w-6xl p-0 md:p-12" id="form">
+            <div className=" h-fit max-w-6xl p-0 md:p-12 mt-4" id="form">
               <h2 className="mb-2 text-base font-semibold">
                 Have you any query?
               </h2>
