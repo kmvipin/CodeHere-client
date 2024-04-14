@@ -39,7 +39,7 @@ function CollapsibleExample(props) {
   return (
     <div>
       <AlertMessage message={alertMessage} content={"Try Again!!"} setMessage={setAlertMessage}/>
-      <header className="flex-initial w-full py-4 border-t h-[55px]">
+      <header className="flex-initial w-full py-4 border-t h-[55px] bg-transparent">
         <div className="container flex items-center justify-between px-4 md:px-6">
           <div className="flex items-center space-x-2 cursor-pointer" onClick={()=>{navigate('/')}}>
               <img src={logo} className="bg-transparent h-[35px] w-auto"/>

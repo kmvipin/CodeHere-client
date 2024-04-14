@@ -102,7 +102,7 @@ const QuestionList = () => {
                       </span>
                     </td>}
                     <td
-                      className='question-name'
+                      className='question-name underline'
                       onClick={() => {
                         navigate(`/question?name=${obj.name}`);
                       }}

@@ -108,7 +108,7 @@ function ContactForm(props) {
                       Our Social
                     </h3>
                     <div className="flex justify-between mt-2">
-                      <a href="https://www.linkedin.com/in/sumitkhohal/" target="_blank">
+                      <a href="https://www.linkedin.com/in/vipin-886bab25a/" target="_blank">
                         <FontAwesomeIcon
                           icon={faLinkedin}
                           size="lg"
