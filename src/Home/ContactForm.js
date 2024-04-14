@@ -6,6 +6,7 @@ import validator from "validator";
 import {
   faGoogle,
   faLinkedin,
+  faLinkedinIn,
   faTwitter,
 } from "@fortawesome/free-brands-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -107,8 +108,15 @@ function ContactForm(props) {
                     <h3 className="mb-2 text-lg font-medium leading-6 text-gray-900">
                       Our Social
                     </h3>
-                    <div className="flex justify-between mt-2">
+                    <div className="flex justify-between mt-2 gap-4">
                       <a href="https://www.linkedin.com/in/vipin-886bab25a/" target="_blank">
+                        <FontAwesomeIcon
+                          icon={faLinkedin}
+                          size="lg"
+                          className="hover:cursor-pointer"
+                        />
+                      </a>
+                      <a href="https://www.linkedin.com/in/sumitkhohal/" target="_blank">
                         <FontAwesomeIcon
                           icon={faLinkedin}
                           size="lg"
