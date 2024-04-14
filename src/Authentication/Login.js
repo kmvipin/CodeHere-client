@@ -32,14 +32,14 @@ const Login = ({ setLoginPage, isLoginPage, handleLogin, loginError, nextPageSta
           <CustomError message={loginError} />
           <div className="mt-4">
             <label className="block text-gray-700 text-sm font-bold mb-2">
-              Email Address
+              Username or Email
             </label>
             <input
               className="text-gray-700 border border-gray-300 rounded py-2 px-4 block w-full focus:outline-2 focus:outline-blue-700"
               type="email"
               value={usernameOrEmail}
               required
-              placeholder="Your Email"
+              placeholder="Username or Email"
               autoComplete="email"
               onChange={(e) => {
                 setUsernameOrEmail(e.target.value);
@@ -57,7 +57,7 @@ const Login = ({ setLoginPage, isLoginPage, handleLogin, loginError, nextPageSta
               type="password"
               value={password}
               autoComplete="current-password"
-              placeholder="Your Password"
+              placeholder="Password"
               onChange={(e) => {
                 setPassword(e.target.value);
               }}
